@@ -9,6 +9,8 @@ import Foundation
 protocol ListGenreMoviesViewModelOutput {
     var showLoading: AnyPublisher<Bool, Never> { get }
     var showGenreList: AnyPublisher<[GenreViewModel], Never> { get }
+    var showAlert: AnyPublisher<String, Never> { get }
+    var showDiscoverMovies: AnyPublisher<String, Never> { get }
 }
 
 protocol ListGenreMoviesViewModelInput {
@@ -21,8 +23,10 @@ protocol ListGenreMoviesViewModelType {
 }
 
 final class ListGenreMoviesViewModel {
-    private var showLoadingSubject = PassthroughSubject<Bool, Never>()
-    private var showGenreListSubject = PassthroughSubject<[GenreViewModel], Never>()
+    private let showLoadingSubject = PassthroughSubject<Bool, Never>()
+    private let showGenreListSubject = PassthroughSubject<[GenreViewModel], Never>()
+    private let showAlertSubject = PassthroughSubject<String, Never>()
+    private let showDiscoverMoviesSubject = PassthroughSubject<String, Never>()
     
     private var genreList: [GenreList.Genre]?
 }
@@ -47,12 +51,12 @@ private extension ListGenreMoviesViewModel {
                     return GenreViewModel(
                         genre: $0,
                         tapCompletion: { [weak self] viewModel in
-                            
+                            self?.showDiscoverMoviesSubject.send(viewModel.id)
                     })
                 }
                 self?.showGenreListSubject.send(listViewModel)
             case .failure(let error):
-                break
+                self?.showAlertSubject.send(error.message)
             }
         }
     }
@@ -66,6 +70,14 @@ extension ListGenreMoviesViewModel: ListGenreMoviesViewModelOutput {
     
     var showGenreList: AnyPublisher<[GenreViewModel], Never> {
         return showGenreListSubject.eraseToAnyPublisher()
+    }
+    
+    var showAlert: AnyPublisher<String, Never> {
+        return showAlertSubject.eraseToAnyPublisher()
+    }
+    
+    var showDiscoverMovies: AnyPublisher<String, Never> {
+        return showDiscoverMoviesSubject.eraseToAnyPublisher()
     }
 }
 

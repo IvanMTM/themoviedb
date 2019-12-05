@@ -17,3 +17,11 @@ final class ListGenreMoviesWireframe {
         return vc
     }
 }
+
+// MARK: Public
+extension ListGenreMoviesWireframe {
+    func showDiscoverMoviesViewController(genreId: String) {
+        let vc = DiscoverMoviesWireframe().create(genreId: genreId)
+        viewController.show(vc, sender: nil)
+    }
+}

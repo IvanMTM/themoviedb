@@ -18,7 +18,6 @@ protocol Request {
 extension Request {
     func perform<T: Codable>(completion: @escaping (Result<T, NetworkError>) -> Void) -> DataRequest {
         let request = dataRequest.responseJSON(queue: .global(qos: .userInitiated)) { response in
-            print(response)
             var taskCompletion: Result<T, NetworkError>
             switch response.result {
             case .success:
@@ -31,8 +30,10 @@ extension Request {
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let model = try decoder.decode(T.self, from: data)
                     taskCompletion = .success(model)
+                    print(response)
                 } catch {
                     taskCompletion = .failure(.decodeFailed(response: response))
+                    print("error parse: \(error)")
                 }
             case .failure:
                 taskCompletion = .failure(.generalFailed(response: response))

@@ -20,4 +20,8 @@ extension GenreViewModel {
     var title: String {
         return genre.name
     }
+    
+    var id: String {
+        return "\(genre.id)"
+    }
 }

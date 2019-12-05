@@ -7,6 +7,7 @@ enum Urls: String {
     private var base: String { return "https://api.themoviedb.org/3" }
     
     case genreList = "/genre/movie/list"
+    case discover = "/discover/movie"
 }
 
 // MARK: Public
