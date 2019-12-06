@@ -5,6 +5,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 protocol DiscoverMoviesViewModelOutput {
     

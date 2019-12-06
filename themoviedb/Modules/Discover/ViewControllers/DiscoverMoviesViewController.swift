@@ -6,9 +6,10 @@
 import UIKit
 import Combine
 
-private typealias DiscoverMoviesDataSource = UITableViewDiffableDataSource<Section, ListDiffable>
+private typealias DiscoverMoviesDataSource = UITableViewDiffableDataSource<DiscoverMoviesSection, ListDiffable>
+private typealias DiscoverMoviesSnapshot = NSDiffableDataSourceSnapshot<DiscoverMoviesSection, ListDiffable>
 
-private enum Section {
+private enum DiscoverMoviesSection {
     case main, loading
 }
 
