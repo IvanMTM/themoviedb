@@ -6,8 +6,23 @@
 import UIKit
 import Combine
 
+private typealias DiscoverMoviesDataSource = UITableViewDiffableDataSource<Section, ListDiffable>
+
+private enum Section {
+    case main, loading
+}
+
 final class DiscoverMoviesViewController: BaseViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    private lazy var dataSource: DiscoverMoviesDataSource = {
+        let dataSource = DiscoverMoviesDataSource(
+            tableView: tableView,
+            cellProvider: { (tableView, indexPath, viewModel) -> UITableViewCell? in
+            
+            })
+        return dataSource
+    }()
     
     var viewModel: DiscoverMoviesViewModelType!
     var wireframe: DiscoverMoviesWireframe!
@@ -16,8 +31,6 @@ final class DiscoverMoviesViewController: BaseViewController {
         super.viewDidLoad()
         setupView()
         viewModel.input.onViewDidLoad()
-        
-        UITableViewDiffableDataSource
     }
 }
 

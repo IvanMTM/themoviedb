@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94823E5D23995EE400BE0FCF /* DiscoverMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E5C23995EE400BE0FCF /* DiscoverMovieViewModel.swift */; };
+		94823E5F2399F2B800BE0FCF /* ListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E5E2399F2B800BE0FCF /* ListDiffable.swift */; };
 		948252292398A3D500957E44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948252282398A3D500957E44 /* AppDelegate.swift */; };
 		948252322398A3D600957E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 948252312398A3D600957E44 /* Assets.xcassets */; };
 		948252352398A3D600957E44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948252332398A3D600957E44 /* LaunchScreen.storyboard */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		94823E5C23995EE400BE0FCF /* DiscoverMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMovieViewModel.swift; sourceTree = "<group>"; };
+		94823E5E2399F2B800BE0FCF /* ListDiffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDiffable.swift; sourceTree = "<group>"; };
 		948252252398A3D500957E44 /* themoviedb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = themoviedb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948252282398A3D500957E44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		948252312398A3D600957E44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94823E5B23995ECF00BE0FCF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94823E5C23995EE400BE0FCF /* DiscoverMovieViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9482521C2398A3D500957E44 = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				94C5B5582399113800DE38B9 /* UIControlSubscription+UIControlPublisher.swift */,
+				94823E5E2399F2B800BE0FCF /* ListDiffable.swift */,
 			);
 			path = AdditionalClasses;
 			sourceTree = "<group>";
@@ -337,6 +350,7 @@
 		94C5B5772399484500DE38B9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				94823E5B23995ECF00BE0FCF /* Views */,
 				94C5B5782399485500DE38B9 /* DiscoverMoviesViewModel.swift */,
 			);
 			path = ViewModels;
@@ -431,7 +445,9 @@
 			files = (
 				94C5B5592399113800DE38B9 /* UIControlSubscription+UIControlPublisher.swift in Sources */,
 				94C5B55B239911B600DE38B9 /* UIControl+Combine.swift in Sources */,
+				94823E5D23995EE400BE0FCF /* DiscoverMovieViewModel.swift in Sources */,
 				94C5B5792399485500DE38B9 /* DiscoverMoviesViewModel.swift in Sources */,
+				94823E5F2399F2B800BE0FCF /* ListDiffable.swift in Sources */,
 				94C5B56F23993C4400DE38B9 /* DiscoverMovieList.swift in Sources */,
 				948252602398DDE300957E44 /* ListGenreMoviesServices.swift in Sources */,
 				948252632398ED3100957E44 /* ListGenreMoviesWireframe.swift in Sources */,
