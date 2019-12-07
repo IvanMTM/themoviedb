@@ -9,6 +9,7 @@ import Combine
 protocol DetailMovieViewModelOutput {
     var updateImageView: AnyPublisher<DetailMovieImagesViewModel, Never> { get }
     var updateTitleSubtitleView: AnyPublisher<DetailMovieTitleSubtitleViewModel, Never> { get }
+    var updateInformationViews: AnyPublisher<[DetailMovieInformationViewModel], Never> { get }
     var showLoading: AnyPublisher<Bool, Never> { get }
     var showAlert: AnyPublisher<String, Never> { get }
     var showReviews: AnyPublisher<Movie, Never> { get }
@@ -26,6 +27,7 @@ protocol DetailMovieViewModelType {
 final class DetailMovieViewModel {
     private let updateImageViewSubject = PassthroughSubject<DetailMovieImagesViewModel, Never>()
     private let updateTitleSubtitleViewSubject = PassthroughSubject<DetailMovieTitleSubtitleViewModel, Never>()
+    private let updateInformationViewsSubject = PassthroughSubject<[DetailMovieInformationViewModel], Never>()
     private let showLoadingSubject = PassthroughSubject<Bool, Never>()
     private let showAlertSubject = PassthroughSubject<String, Never>()
     private let showReviewsSubject = PassthroughSubject<Movie, Never>()
@@ -47,6 +49,12 @@ final class DetailMovieViewModel {
         guard let detail = detail else { return nil }
         return DetailMovieTitleSubtitleViewModel(title: detail.title, subtitle: detail.overview)
     }
+    var informationViewModels: [DetailMovieInformationViewModel] {
+        guard let detail = detail else { return [] }
+        return detail.displayItems.map {
+            DetailMovieInformationViewModel(key: $0.key, value: $0.value)
+        }
+    }
     
     init(movie: Movie) {
         self.movie = movie
@@ -56,8 +64,10 @@ final class DetailMovieViewModel {
 // MARK: Private
 private extension DetailMovieViewModel {
     func requestDetail() {
+        showLoadingSubject.send(true)
         DetailServices().getMovieDetail(movieId: "\(movie.id)") { [weak self] result in
             guard let self = self else { return }
+            self.showLoadingSubject.send(false)
             switch result {
             case .success(let model):
                 self.detail = model
@@ -75,6 +85,7 @@ private extension DetailMovieViewModel {
         if let titleSubtitleViewModel = titleSubtitleViewModel {
             updateTitleSubtitleViewSubject.send(titleSubtitleViewModel)
         }
+        updateInformationViewsSubject.send(informationViewModels)
     }
 }
 
@@ -93,6 +104,10 @@ extension DetailMovieViewModel: DetailMovieViewModelOutput {
     
     var updateTitleSubtitleView: AnyPublisher<DetailMovieTitleSubtitleViewModel, Never> {
         return updateTitleSubtitleViewSubject.eraseToAnyPublisher()
+    }
+    
+    var updateInformationViews: AnyPublisher<[DetailMovieInformationViewModel], Never> {
+        return updateInformationViewsSubject.eraseToAnyPublisher()
     }
     
     var showLoading: AnyPublisher<Bool, Never> {

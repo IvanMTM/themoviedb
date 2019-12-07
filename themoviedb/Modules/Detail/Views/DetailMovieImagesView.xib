@@ -39,7 +39,7 @@
                         <constraint firstAttribute="width" secondItem="EGx-a2-gM8" secondAttribute="height" multiplier="0.7" id="eeu-Ey-YMM"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ab-rz-CCf">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ab-rz-CCf">
                     <rect key="frame" x="133" y="220" width="57" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="ps9-du-Oek"/>

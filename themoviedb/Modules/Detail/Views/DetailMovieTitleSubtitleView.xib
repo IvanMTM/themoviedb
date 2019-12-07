@@ -19,7 +19,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGz-7h-gOU">
-                    <rect key="frame" x="16" y="42.5" width="288" height="207.5"/>
+                    <rect key="frame" x="16" y="42.5" width="288" height="191.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                 <constraint firstItem="f0k-C1-9kz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="ahQ-Ua-VBk"/>
                 <constraint firstAttribute="trailing" secondItem="ZGz-7h-gOU" secondAttribute="trailing" constant="16" id="cMT-Ye-Eft"/>
                 <constraint firstItem="f0k-C1-9kz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="dlA-NQ-TUx"/>
-                <constraint firstAttribute="bottom" secondItem="ZGz-7h-gOU" secondAttribute="bottom" id="edq-85-yJf"/>
+                <constraint firstAttribute="bottom" secondItem="ZGz-7h-gOU" secondAttribute="bottom" constant="16" id="edq-85-yJf"/>
                 <constraint firstAttribute="trailing" secondItem="f0k-C1-9kz" secondAttribute="trailing" constant="16" id="mtH-PB-W04"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

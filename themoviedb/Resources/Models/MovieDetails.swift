@@ -8,7 +8,7 @@ struct MovieDetails: Codable {
     private let backdropPath: String?
     let belongsToCollection: BelongsToCollection?
     let budget: Double
-    let genres: [Genre]
+    private let genres: [Genre]
     let homepage: String?
     let id: Int
     let imdbId: String?
@@ -88,5 +88,41 @@ extension MovieDetails {
         } else {
             return ""
         }
+    }
+    
+    var joinedGenres: String {
+        return genres.map { $0.name }.joined(separator: ", ")
+    }
+    
+    var joinedSpokenLanguages: String {
+        return spokenLanguages.map { $0.name }.joined(separator: ", ")
+    }
+    
+    var joinedCountries: String {
+        return productionCountries.map { $0.name }.joined(separator: ", ")
+    }
+    
+    var joinedCompanies: String {
+        return productionCompanies.map { $0.name }.joined(separator: ", ")
+    }
+    
+    var displayItems: [String: String] {
+        var items = [String: String]()
+        items["Popularity"] = "\(popularity)"
+        items["Genre"]      = joinedGenres
+        items["Release"]    = releaseDate
+        items["Language"]   = joinedSpokenLanguages
+        items["Country"]    = joinedCountries
+        items["Company"]    = joinedCompanies
+        if let homepage = homepage {
+            items["homepage"] = homepage
+        }
+        if let runtime = runtime {
+            items["Duration"] = "\(runtime) min"
+        }
+        if voteAverage > 0 {
+            items["Rating"] = "\(voteAverage) / 10 from \(voteCount) users"
+        }
+        return items
     }
 }

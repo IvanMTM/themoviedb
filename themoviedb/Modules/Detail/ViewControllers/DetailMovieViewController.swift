@@ -16,6 +16,7 @@ final class DetailMovieViewController: BaseViewController {
         let titleSubtitleView = UIView.createFromNib(DetailMovieTitleSubtitleView.self)
         return titleSubtitleView
     }()
+    private var informationViews = [DetailMovieInformationView]()
     
     var viewModel: DetailMovieViewModelType!
     var wireframe: DetailMovieWireframe!
@@ -53,8 +54,22 @@ private extension DetailMovieViewController {
             self.stackView.insertArrangedSubview(self.titleSubtitleView, at: 1)
         }.store(in: &subscriptions)
         
+        viewModel.output.updateInformationViews.sink { [weak self] viewModels in
+            guard let self = self else { return }
+            viewModels.enumerated().forEach {
+                let view = self.createInformationView(viewModel: $0.element)
+                self.stackView.insertArrangedSubview(view, at: $0.offset + 2)
+            }
+        }.store(in: &subscriptions)
+        
         viewModel.output.showReviews.sink { [weak self] movie in
             self?.wireframe.showReview(movie: movie)
         }.store(in: &subscriptions)
+    }
+    
+    func createInformationView(viewModel: DetailMovieInformationViewModel) -> DetailMovieInformationView {
+        let view = UIView.createFromNib(DetailMovieInformationView.self)
+        view.bind(viewModel: viewModel)
+        return view
     }
 }
