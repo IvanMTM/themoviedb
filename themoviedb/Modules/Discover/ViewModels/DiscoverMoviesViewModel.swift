@@ -5,10 +5,11 @@
 
 import Foundation
 import Combine
-import UIKit
 
 protocol DiscoverMoviesViewModelOutput {
-    
+    var updateTableView: AnyPublisher<[ListDiffable], Never> { get }
+    var title: AnyPublisher<String, Never> { get }
+    var showLoading: AnyPublisher<Bool, Never> { get }
 }
 
 protocol DiscoverMoviesViewModelInput {
@@ -21,26 +22,54 @@ protocol DiscoverMoviesViewModelType {
 }
 
 final class DiscoverMoviesViewModel {
-    private let genreId: String
+    private let updateTableViewSubject = PassthroughSubject<[ListDiffable], Never>()
+    private let titleSubject = PassthroughSubject<String, Never>()
+    private let showLoadingSubject = PassthroughSubject<Bool, Never>()
+    
+    private let genre: Genre
     private var page = 1
     private let perPage = 20
     
     private var movies = [DiscoverMovieList.Result]()
+    private var items: [ListDiffable] {
+        let items: [ListDiffable] = movieViewModels + [loadingViewModel]
+        return items
+    }
+    private var loadingViewModel: LoadingCellViewModel {
+        return LoadingCellViewModel(
+            id: 0,
+            onDisplayCompletion: { [weak self] in
+                self?.requestMovies()
+        })
+    }
+    private var movieViewModels: [DiscoverMovieViewModel] {
+        return movies.map {
+            DiscoverMovieViewModel(
+                id: $0.id,
+                imageString: Urls.images.string + ConfigurationManager.shared.posterSmallSize + $0.posterPath,
+                tapCompletion: { [weak self] in
+                    
+            })
+        }
+    }
     
-    init(genreId: String) {
-        self.genreId = genreId
+    init(genre: Genre) {
+        self.genre = genre
     }
 }
 
 // MARK: Private
 private extension DiscoverMoviesViewModel {
     func requestMovies() {
-        DiscoverMoviesServices().getMoviesBy(genre: genreId, page: page) { [weak self] result in
+        if movies.isEmpty { showLoadingSubject.send(true) }
+        DiscoverMoviesServices().getMoviesBy(genre: "\(genre.id)", page: page) { [weak self] result in
+            guard let self = self else { return }
+            if self.movies.isEmpty { self.showLoadingSubject.send(false) }
             switch result {
             case .success(let model):
-                self?.movies = model.results
-                self?.page = model.page + 1
-                
+                self.movies += model.results
+                self.page = model.page + 1
+                self.updateTableViewSubject.send(self.items)
             case .failure(let error):
                 break
             }
@@ -52,12 +81,23 @@ private extension DiscoverMoviesViewModel {
 extension DiscoverMoviesViewModel: DiscoverMoviesViewModelInput {
     func onViewDidLoad() {
         requestMovies()
+        titleSubject.send(genre.name)
     }
 }
 
 // MARK: DiscoverMoviesViewModelOutput
 extension DiscoverMoviesViewModel: DiscoverMoviesViewModelOutput {
+    var updateTableView: AnyPublisher<[ListDiffable], Never> {
+        return updateTableViewSubject.eraseToAnyPublisher()
+    }
     
+    var title: AnyPublisher<String, Never> {
+        return titleSubject.eraseToAnyPublisher()
+    }
+    
+    var showLoading: AnyPublisher<Bool, Never> {
+        return showLoadingSubject.eraseToAnyPublisher()
+    }
 }
 
 // MARK: DiscoverMoviesViewModelType

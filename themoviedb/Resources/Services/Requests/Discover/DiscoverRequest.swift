@@ -3,8 +3,6 @@
 // Copyright © 2019 OVO. All rights reserved.
 //
 
-import Foundation
-
 /// example: https://api.themoviedb.org/3/discover/movie?api_key=0fa5fc61c248cc9050a25d5333eade92&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1
 struct DiscoverRequest: Request {
     let url: String = Urls.discover.string

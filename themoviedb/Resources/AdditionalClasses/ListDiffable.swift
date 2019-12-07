@@ -3,7 +3,7 @@
 // Copyright © 2019 OVO. All rights reserved.
 // 
 
-class ListDiffable: Hashable {
+class ListDiffable {
     var id: Int
     
     init(id: Int) {
@@ -11,7 +11,8 @@ class ListDiffable: Hashable {
     }
 }
 
-extension ListDiffable {
+// MARK: Hashable
+extension ListDiffable: Hashable {
     static func == (lhs: ListDiffable, rhs: ListDiffable) -> Bool {
         return lhs.id == rhs.id
     }

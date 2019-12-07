@@ -29,10 +29,7 @@ extension GenreView {
 private extension GenreView {
     func bindEvents() {
         button.publisher(for: .touchUpInside).sink { [weak self] _ in
-            guard let viewModel = self?.viewModel else {
-                return
-            }
-            viewModel.tapCompletion(viewModel)
+            self?.viewModel?.tapCompletion()
         }.store(in: &subscriptions)
     }
 }

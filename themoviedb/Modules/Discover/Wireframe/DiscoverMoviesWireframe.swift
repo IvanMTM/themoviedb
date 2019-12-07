@@ -8,9 +8,9 @@ import Foundation
 final class DiscoverMoviesWireframe {
     private weak var viewController: DiscoverMoviesViewController!
     
-    func create(genreId: String) -> DiscoverMoviesViewController {
+    func create(genre: Genre) -> DiscoverMoviesViewController {
         let vc = DiscoverMoviesViewController()
-        let viewModel = DiscoverMoviesViewModel(genreId: genreId)
+        let viewModel = DiscoverMoviesViewModel(genre: genre)
         viewController = vc
         vc.viewModel = viewModel
         vc.wireframe = self

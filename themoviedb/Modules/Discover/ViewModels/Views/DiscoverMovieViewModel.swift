@@ -7,11 +7,18 @@ import Foundation
 
 final class DiscoverMovieViewModel: ListDiffable {
     let imageString: String
-    let title: String
+    let tapCompletion: () -> Void
     
-    init(id: Int, imageString: String, title: String) {
+    init(id: Int, imageString: String, tapCompletion: @escaping () -> Void) {
         self.imageString = imageString
-        self.title = title
+        self.tapCompletion = tapCompletion
         super.init(id: id)
+    }
+}
+
+// MARK: Public
+extension DiscoverMovieViewModel {
+    var urlImage: URL? {
+        return URL(string: imageString)
     }
 }

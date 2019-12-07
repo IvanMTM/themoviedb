@@ -4,8 +4,10 @@
 //
 
 enum Urls: String {
-    private var base: String { return "https://api.themoviedb.org/3" }
+    var base: String { return "https://api.themoviedb.org/3" }
     
+    case images
+    case configuration = "/configuration"
     case genreList = "/genre/movie/list"
     case discover = "/discover/movie"
 }
@@ -13,6 +15,9 @@ enum Urls: String {
 // MARK: Public
 extension Urls {
     var string: String {
-        return base + rawValue
+        switch self {
+        case .images: return ConfigurationManager.shared.baseImageUrl
+        default     : return base + rawValue
+        }
     }
 }

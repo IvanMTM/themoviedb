@@ -7,8 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94000E7A239AC0B40012FFDC /* Collection+SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94000E79239AC0B40012FFDC /* Collection+SafeIndex.swift */; };
 		94823E5D23995EE400BE0FCF /* DiscoverMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E5C23995EE400BE0FCF /* DiscoverMovieViewModel.swift */; };
 		94823E5F2399F2B800BE0FCF /* ListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E5E2399F2B800BE0FCF /* ListDiffable.swift */; };
+		94823E62239A5FA100BE0FCF /* DiscoverMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E61239A5FA100BE0FCF /* DiscoverMovieCell.swift */; };
+		94823E64239A5FC600BE0FCF /* DiscoverMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94823E63239A5FC600BE0FCF /* DiscoverMovieCell.xib */; };
+		94823E72239A851000BE0FCF /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 94823E71239A851000BE0FCF /* SDWebImage */; };
+		94823E75239A896800BE0FCF /* ConfigurationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E74239A896800BE0FCF /* ConfigurationRequest.swift */; };
+		94823E77239A8A0200BE0FCF /* ConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E76239A8A0200BE0FCF /* ConfigurationService.swift */; };
+		94823E79239A8A4D00BE0FCF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E78239A8A4D00BE0FCF /* Configuration.swift */; };
+		94823E7B239A90F800BE0FCF /* UICollectionView+Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E7A239A90F800BE0FCF /* UICollectionView+Deque.swift */; };
+		94823E7E239AB0F200BE0FCF /* DiscoverMoviesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E7D239AB0F200BE0FCF /* DiscoverMoviesDataSource.swift */; };
+		94823E80239ABB1F00BE0FCF /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E7F239ABB1F00BE0FCF /* LoadingCell.swift */; };
+		94823E82239ABB3400BE0FCF /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94823E81239ABB3400BE0FCF /* LoadingCell.xib */; };
 		948252292398A3D500957E44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948252282398A3D500957E44 /* AppDelegate.swift */; };
 		948252322398A3D600957E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 948252312398A3D600957E44 /* Assets.xcassets */; };
 		948252352398A3D600957E44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948252332398A3D600957E44 /* LaunchScreen.storyboard */; };
@@ -46,8 +57,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		94000E79239AC0B40012FFDC /* Collection+SafeIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeIndex.swift"; sourceTree = "<group>"; };
 		94823E5C23995EE400BE0FCF /* DiscoverMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMovieViewModel.swift; sourceTree = "<group>"; };
 		94823E5E2399F2B800BE0FCF /* ListDiffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDiffable.swift; sourceTree = "<group>"; };
+		94823E61239A5FA100BE0FCF /* DiscoverMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMovieCell.swift; sourceTree = "<group>"; };
+		94823E63239A5FC600BE0FCF /* DiscoverMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverMovieCell.xib; sourceTree = "<group>"; };
+		94823E74239A896800BE0FCF /* ConfigurationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationRequest.swift; sourceTree = "<group>"; };
+		94823E76239A8A0200BE0FCF /* ConfigurationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationService.swift; sourceTree = "<group>"; };
+		94823E78239A8A4D00BE0FCF /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		94823E7A239A90F800BE0FCF /* UICollectionView+Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Deque.swift"; sourceTree = "<group>"; };
+		94823E7D239AB0F200BE0FCF /* DiscoverMoviesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMoviesDataSource.swift; sourceTree = "<group>"; };
+		94823E7F239ABB1F00BE0FCF /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		94823E81239ABB3400BE0FCF /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		948252252398A3D500957E44 /* themoviedb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = themoviedb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948252282398A3D500957E44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		948252312398A3D600957E44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94823E72239A851000BE0FCF /* SDWebImage in Frameworks */,
 				948252432398A9DF00957E44 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +125,32 @@
 				94823E5C23995EE400BE0FCF /* DiscoverMovieViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		94823E60239A5F7900BE0FCF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94823E61239A5FA100BE0FCF /* DiscoverMovieCell.swift */,
+				94823E63239A5FC600BE0FCF /* DiscoverMovieCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94823E73239A895700BE0FCF /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				94823E74239A896800BE0FCF /* ConfigurationRequest.swift */,
+				94823E76239A8A0200BE0FCF /* ConfigurationService.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		94823E7C239AB0E000BE0FCF /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				94823E7D239AB0F200BE0FCF /* DiscoverMoviesDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		9482521C2398A3D500957E44 = {
@@ -208,6 +256,7 @@
 			children = (
 				9482524D2398AB4500957E44 /* GenreList.swift */,
 				94C5B56E23993C4400DE38B9 /* DiscoverMovieList.swift */,
+				94823E78239A8A4D00BE0FCF /* Configuration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,7 +266,9 @@
 			children = (
 				948252542398B38F00957E44 /* Dictionary+Ops.swift */,
 				94C5B5502398F61900DE38B9 /* UITableView+Deque.swift */,
+				94823E7A239A90F800BE0FCF /* UICollectionView+Deque.swift */,
 				94C5B55A239911B600DE38B9 /* UIControl+Combine.swift */,
+				94000E79239AC0B40012FFDC /* Collection+SafeIndex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +276,7 @@
 		948252582398B99000957E44 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				94823E73239A895700BE0FCF /* Configuration */,
 				94C5B57A23994A1D00DE38B9 /* Discover */,
 				9482525B2398D8EE00957E44 /* Genre */,
 				9482524F2398ABCD00957E44 /* Request.swift */,
@@ -299,6 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				94C5B5602399147000DE38B9 /* LoadingView.swift */,
+				94823E7F239ABB1F00BE0FCF /* LoadingCell.swift */,
+				94823E81239ABB3400BE0FCF /* LoadingCell.xib */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -314,9 +368,11 @@
 		94C5B5672399380100DE38B9 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				94823E7C239AB0E000BE0FCF /* DataSources */,
 				94C5B5692399384000DE38B9 /* Services */,
 				94C5B5682399383400DE38B9 /* ViewControllers */,
 				94C5B5772399484500DE38B9 /* ViewModels */,
+				94823E60239A5F7900BE0FCF /* Views */,
 				94C5B5742399480000DE38B9 /* Wireframe */,
 			);
 			path = Discover;
@@ -382,6 +438,7 @@
 			name = themoviedb;
 			packageProductDependencies = (
 				948252422398A9DF00957E44 /* Alamofire */,
+				94823E71239A851000BE0FCF /* SDWebImage */,
 			);
 			productName = themoviedb;
 			productReference = 948252252398A3D500957E44 /* themoviedb.app */;
@@ -413,6 +470,7 @@
 			mainGroup = 9482521C2398A3D500957E44;
 			packageReferences = (
 				948252412398A9DF00957E44 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				94823E70239A851000BE0FCF /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 948252262398A3D500957E44 /* Products */;
 			projectDirPath = "";
@@ -428,6 +486,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94823E82239ABB3400BE0FCF /* LoadingCell.xib in Resources */,
+				94823E64239A5FC600BE0FCF /* DiscoverMovieCell.xib in Resources */,
 				94C5B54C2398F32800DE38B9 /* GenreView.xib in Resources */,
 				94C5B5732399473000DE38B9 /* DiscoverMoviesViewController.xib in Resources */,
 				948252352398A3D600957E44 /* LaunchScreen.storyboard in Resources */,
@@ -453,24 +513,32 @@
 				948252632398ED3100957E44 /* ListGenreMoviesWireframe.swift in Sources */,
 				94C5B54A2398F2F800DE38B9 /* GenreView.swift in Sources */,
 				948252402398A4E500957E44 /* Authorization.swift in Sources */,
+				94823E79239A8A4D00BE0FCF /* Configuration.swift in Sources */,
 				9482524E2398AB4500957E44 /* GenreList.swift in Sources */,
 				948252552398B38F00957E44 /* Dictionary+Ops.swift in Sources */,
+				94000E7A239AC0B40012FFDC /* Collection+SafeIndex.swift in Sources */,
 				948252472398AA8500957E44 /* ListGenreMoviesViewController.swift in Sources */,
 				948252522398AC3E00957E44 /* Urls.swift in Sources */,
 				948252652398EDC800957E44 /* ListGenreMoviesViewModel.swift in Sources */,
 				948252572398B7A500957E44 /* SessionManager+Extensions.swift in Sources */,
 				94C5B56B2399386F00DE38B9 /* DiscoverMoviesServices.swift in Sources */,
+				94823E7E239AB0F200BE0FCF /* DiscoverMoviesDataSource.swift in Sources */,
 				948252292398A3D500957E44 /* AppDelegate.swift in Sources */,
+				94823E7B239A90F800BE0FCF /* UICollectionView+Deque.swift in Sources */,
 				94C5B5612399147000DE38B9 /* LoadingView.swift in Sources */,
 				94C5B571239946FD00DE38B9 /* DiscoverMoviesViewController.swift in Sources */,
 				94C5B5512398F61900DE38B9 /* UITableView+Deque.swift in Sources */,
 				94C5B5762399480F00DE38B9 /* DiscoverMoviesWireframe.swift in Sources */,
+				94823E75239A896800BE0FCF /* ConfigurationRequest.swift in Sources */,
 				94C5B56D239938B400DE38B9 /* DiscoverRequest.swift in Sources */,
 				9482525D2398D91200957E44 /* ListGenreRequest.swift in Sources */,
+				94823E77239A8A0200BE0FCF /* ConfigurationService.swift in Sources */,
 				94C5B566239919FE00DE38B9 /* BaseButton.swift in Sources */,
 				94C5B55623990E9100DE38B9 /* BaseViewController.swift in Sources */,
 				94C5B55D2399127600DE38B9 /* BaseView.swift in Sources */,
+				94823E62239A5FA100BE0FCF /* DiscoverMovieCell.swift in Sources */,
 				948252502398ABCD00957E44 /* Request.swift in Sources */,
+				94823E80239ABB1F00BE0FCF /* LoadingCell.swift in Sources */,
 				94C5B564239915F600DE38B9 /* GenreViewModel.swift in Sources */,
 				9482525A2398BD2B00957E44 /* NetworkError.swift in Sources */,
 			);
@@ -664,6 +732,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		94823E70239A851000BE0FCF /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 		948252412398A9DF00957E44 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
@@ -675,6 +751,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		94823E71239A851000BE0FCF /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94823E70239A851000BE0FCF /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		948252422398A9DF00957E44 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 948252412398A9DF00957E44 /* XCRemoteSwiftPackageReference "Alamofire" */;

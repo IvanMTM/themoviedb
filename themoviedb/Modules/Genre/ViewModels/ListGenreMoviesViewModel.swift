@@ -10,7 +10,7 @@ protocol ListGenreMoviesViewModelOutput {
     var showLoading: AnyPublisher<Bool, Never> { get }
     var showGenreList: AnyPublisher<[GenreViewModel], Never> { get }
     var showAlert: AnyPublisher<String, Never> { get }
-    var showDiscoverMovies: AnyPublisher<String, Never> { get }
+    var showDiscoverMovies: AnyPublisher<Genre, Never> { get }
 }
 
 protocol ListGenreMoviesViewModelInput {
@@ -26,9 +26,9 @@ final class ListGenreMoviesViewModel {
     private let showLoadingSubject = PassthroughSubject<Bool, Never>()
     private let showGenreListSubject = PassthroughSubject<[GenreViewModel], Never>()
     private let showAlertSubject = PassthroughSubject<String, Never>()
-    private let showDiscoverMoviesSubject = PassthroughSubject<String, Never>()
+    private let showDiscoverMoviesSubject = PassthroughSubject<Genre, Never>()
     
-    private var genreList: [GenreList.Genre]?
+    private var genreList: [Genre]?
 }
 
 // MARK: ListGenreMoviesViewModelInput
@@ -50,8 +50,8 @@ private extension ListGenreMoviesViewModel {
                 let listViewModel = model.genres.map {
                     return GenreViewModel(
                         genre: $0,
-                        tapCompletion: { [weak self] viewModel in
-                            self?.showDiscoverMoviesSubject.send(viewModel.id)
+                        tapCompletion: { [weak self] genre in
+                            self?.showDiscoverMoviesSubject.send(genre)
                     })
                 }
                 self?.showGenreListSubject.send(listViewModel)
@@ -76,7 +76,7 @@ extension ListGenreMoviesViewModel: ListGenreMoviesViewModelOutput {
         return showAlertSubject.eraseToAnyPublisher()
     }
     
-    var showDiscoverMovies: AnyPublisher<String, Never> {
+    var showDiscoverMovies: AnyPublisher<Genre, Never> {
         return showDiscoverMoviesSubject.eraseToAnyPublisher()
     }
 }

@@ -20,8 +20,8 @@ final class ListGenreMoviesWireframe {
 
 // MARK: Public
 extension ListGenreMoviesWireframe {
-    func showDiscoverMoviesViewController(genreId: String) {
-        let vc = DiscoverMoviesWireframe().create(genreId: genreId)
+    func showDiscoverMoviesViewController(genre: Genre) {
+        let vc = DiscoverMoviesWireframe().create(genre: genre)
         viewController.show(vc, sender: nil)
     }
 }

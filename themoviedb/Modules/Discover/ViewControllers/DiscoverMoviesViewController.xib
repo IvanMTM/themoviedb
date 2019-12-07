@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiscoverMoviesViewController" customModule="themoviedb" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="ohr-Xq-YG8" id="TiE-cK-2RY"/>
+                <outlet property="collectionView" destination="vZI-KQ-o4d" id="Mr3-yg-ICb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="19d-Zp-rlp"/>
             </connections>
         </placeholder>
@@ -18,17 +18,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ohr-Xq-YG8">
+                <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vZI-KQ-o4d">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                </tableView>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="LJ5-x9-h7E">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ohr-Xq-YG8" secondAttribute="trailing" id="53l-dp-UFU"/>
-                <constraint firstItem="ohr-Xq-YG8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="TbW-UR-y6v"/>
-                <constraint firstItem="ohr-Xq-YG8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iKf-BD-DTI"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ohr-Xq-YG8" secondAttribute="bottom" id="zJQ-Ze-ewr"/>
+                <constraint firstAttribute="bottom" secondItem="vZI-KQ-o4d" secondAttribute="bottom" id="16P-27-7hC"/>
+                <constraint firstItem="vZI-KQ-o4d" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qgn-a7-CiY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vZI-KQ-o4d" secondAttribute="trailing" id="s4e-G3-ak3"/>
+                <constraint firstItem="vZI-KQ-o4d" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="x3G-Ae-jbq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="139" y="123"/>

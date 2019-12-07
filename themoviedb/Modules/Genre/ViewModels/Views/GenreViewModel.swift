@@ -6,12 +6,18 @@
 import Foundation
 
 final class GenreViewModel {
-    private let genre: GenreList.Genre
-    let tapCompletion: (GenreViewModel) -> Void
+    private let genre: Genre
+    private var _tapCompletion: (Genre) -> Void
+    lazy var tapCompletion: () -> Void = {
+        return { [weak self] in
+            guard let self = self else { return }
+            self._tapCompletion(self.genre)
+        }
+    }()
     
-    init(genre: GenreList.Genre, tapCompletion: @escaping (GenreViewModel) -> Void) {
+    init(genre: Genre, tapCompletion: @escaping (Genre) -> Void) {
         self.genre = genre
-        self.tapCompletion = tapCompletion
+        self._tapCompletion = tapCompletion
     }
 }
 

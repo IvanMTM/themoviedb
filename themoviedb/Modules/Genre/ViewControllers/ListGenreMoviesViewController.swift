@@ -33,8 +33,8 @@ private extension ListGenreMoviesViewController {
             shouldShow ? self?.view.showLoadingView() : self?.view.hideLoadingView()
         }.store(in: &subscriptions)
         
-        viewModel.output.showDiscoverMovies.sink { [weak self] genreId in
-            self?.wireframe.showDiscoverMoviesViewController(genreId: genreId)
+        viewModel.output.showDiscoverMovies.sink { [weak self] genre in
+            self?.wireframe.showDiscoverMoviesViewController(genre: genre)
         }.store(in: &subscriptions)
         
         viewModel.output.showAlert.sink { [weak self] genreId in

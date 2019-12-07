@@ -15,9 +15,7 @@ extension UIView {
     }
     
     func hideLoadingView() {
-        DispatchQueue.main.async { [weak self] in
-            self?.subviews.forEach { ($0 as? LoadingView)?.removeFromSuperview() }
-        }
+        subviews.forEach { ($0 as? LoadingView)?.removeFromSuperview() }
     }
 }
 

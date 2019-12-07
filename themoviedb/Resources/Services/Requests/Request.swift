@@ -17,6 +17,7 @@ protocol Request {
 // MARK: Public
 extension Request {
     func perform<T: Codable>(completion: @escaping (Result<T, NetworkError>) -> Void) -> DataRequest {
+        print("request: \(url)")
         let request = dataRequest.responseJSON(queue: .global(qos: .userInitiated)) { response in
             var taskCompletion: Result<T, NetworkError>
             switch response.result {

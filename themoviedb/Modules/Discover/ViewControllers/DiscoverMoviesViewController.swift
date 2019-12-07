@@ -6,36 +6,38 @@
 import UIKit
 import Combine
 
-private typealias DiscoverMoviesDataSource = UITableViewDiffableDataSource<DiscoverMoviesSection, ListDiffable>
-private typealias DiscoverMoviesSnapshot = NSDiffableDataSourceSnapshot<DiscoverMoviesSection, ListDiffable>
-
-private enum DiscoverMoviesSection {
-    case main, loading
-}
-
 final class DiscoverMoviesViewController: BaseViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    private lazy var dataSource: DiscoverMoviesDataSource = {
-        let dataSource = DiscoverMoviesDataSource(
-            tableView: tableView,
-            cellProvider: { (tableView, indexPath, viewModel) -> UITableViewCell? in
-            
-            })
-        return dataSource
-    }()
-    
+    var dataSource: DiscoverMoviesDataSource!
     var viewModel: DiscoverMoviesViewModelType!
     var wireframe: DiscoverMoviesWireframe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
         viewModel.input.onViewDidLoad()
     }
 }
 
 // MARK: Private
 private extension DiscoverMoviesViewController {
-    func setupView() {}
+    func setupView() {
+        dataSource = DiscoverMoviesDataSource(collectionView: collectionView)
+    }
+    
+    func bindViewModel() {
+        viewModel.output.updateTableView.sink { [weak self] cellViewModels in
+            self?.dataSource.update(viewModels: cellViewModels)
+        }.store(in: &subscriptions)
+        
+        viewModel.output.title.sink { [weak self] title in
+            self?.title = title
+        }.store(in: &subscriptions)
+        
+        viewModel.output.showLoading.sink { [weak self] shouldShow in
+            shouldShow ? self?.view.showLoadingView() : self?.view.hideLoadingView()
+        }.store(in: &subscriptions)
+    }
 }
