@@ -8,9 +8,9 @@ import Combine
 
 protocol MovieReviewsViewModelOutput {
     var showLoading: AnyPublisher<Bool, Never> { get }
-    var showAlert: AnyPublisher<String, Never> { get }
     var showTitle: AnyPublisher<String, Never> { get }
     var updateCollection: AnyPublisher<[ListDiffable], Never> { get }
+    var showEmpty: AnyPublisher<Bool, Never> { get }
 }
 
 protocol MovieReviewsViewModelInput {
@@ -25,9 +25,9 @@ protocol MovieReviewsViewModelType {
 
 final class MovieReviewsViewModel {
     private let showLoadingSubject = PassthroughSubject<Bool, Never>()
-    private let showAlertSubject = PassthroughSubject<String, Never>()
     private let showTitleSubject = PassthroughSubject<String, Never>()
     private let updateCollectionSubject = PassthroughSubject<[ListDiffable], Never>()
+    private let showEmptySubject = PassthroughSubject<Bool, Never>()
     
     private let movieId: Int
     private let title: String
@@ -67,21 +67,6 @@ final class MovieReviewsViewModel {
     }
 }
 
-// MARK: MovieReviewsViewModelInput
-extension MovieReviewsViewModel: MovieReviewsViewModelInput {
-    func onViewDidLoad() {
-        requestReviews()
-        showTitleSubject.send(title)
-    }
-    
-    func onLoadMore() {
-        guard canLoadMore else {
-            return
-        }
-        requestReviews()
-    }
-}
-
 // MARK: Private
 private extension MovieReviewsViewModel {
     func requestReviews() {
@@ -91,14 +76,34 @@ private extension MovieReviewsViewModel {
             if self.reviews.isEmpty { self.showLoadingSubject.send(false) }
             switch result {
             case .success(let model):
-                self.reviews += model.results
-                self.page = model.page + 1
-                self.totalPages = model.totalPages
-                self.updateCollectionSubject.send(self.items)
-            case .failure(let error):
-                self.showAlertSubject.send(error.message)
+                if model.results.isEmpty {
+                    self.showEmptySubject.send(true)
+                } else {
+                    self.reviews += model.results
+                    self.page = model.page + 1
+                    self.totalPages = model.totalPages
+                    self.updateCollectionSubject.send(self.items)
+                }
+            case .failure:
+                guard self.reviews.isEmpty else {
+                    return
+                }
+                self.showEmptySubject.send(true)
             }
         }
+    }
+}
+
+// MARK: MovieReviewsViewModelInput
+extension MovieReviewsViewModel: MovieReviewsViewModelInput {
+    func onViewDidLoad() {
+        requestReviews()
+        showTitleSubject.send(title)
+    }
+    
+    func onLoadMore() {
+        guard canLoadMore else { return }
+        requestReviews()
     }
 }
 
@@ -108,16 +113,16 @@ extension MovieReviewsViewModel: MovieReviewsViewModelOutput {
         return showLoadingSubject.eraseToAnyPublisher()
     }
     
-    var showAlert: AnyPublisher<String, Never> {
-        return showAlertSubject.eraseToAnyPublisher()
-    }
-    
     var showTitle: AnyPublisher<String, Never> {
         return showTitleSubject.eraseToAnyPublisher()
     }
     
     var updateCollection: AnyPublisher<[ListDiffable], Never> {
         return updateCollectionSubject.eraseToAnyPublisher()
+    }
+    
+    var showEmpty: AnyPublisher<Bool, Never> {
+        return showEmptySubject.eraseToAnyPublisher()
     }
 }
 

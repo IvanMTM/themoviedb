@@ -37,7 +37,7 @@ private extension ListGenreMoviesViewController {
             self?.wireframe.showDiscoverMoviesViewController(genre: genre)
         }.store(in: &subscriptions)
         
-        viewModel.output.showAlert.sink { [weak self] genreId in
+        viewModel.output.showAlert.sink { [weak self] message in
             
         }.store(in: &subscriptions)
     }

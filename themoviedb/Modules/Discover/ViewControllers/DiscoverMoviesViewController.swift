@@ -40,7 +40,7 @@ private extension DiscoverMoviesViewController {
             shouldShow ? self?.view.showLoadingView() : self?.view.hideLoadingView()
         }.store(in: &subscriptions)
         
-        viewModel.output.showAlert.sink { [weak self] genreId in
+        viewModel.output.showAlert.sink { [weak self] message in
             
         }.store(in: &subscriptions)
         

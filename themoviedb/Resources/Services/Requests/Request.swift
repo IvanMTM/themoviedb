@@ -19,6 +19,7 @@ extension Request {
     func perform<T: Codable>(completion: @escaping (Result<T, NetworkError>) -> Void) -> DataRequest {
         print("request: \(url)")
         let request = dataRequest.responseJSON(queue: .global(qos: .userInitiated)) { response in
+            print(response.request?.url?.absoluteString ?? "")
             var taskCompletion: Result<T, NetworkError>
             switch response.result {
             case .success:

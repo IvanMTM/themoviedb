@@ -4,6 +4,7 @@
 // 
 
 import UIKit
+import Combine
 
 final class MovieReviewsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -39,8 +40,9 @@ private extension MovieReviewsViewController {
             shouldShow ? self?.view.showLoadingView() : self?.view.hideLoadingView()
         }.store(in: &subscriptions)
         
-        viewModel.output.showAlert.sink { [weak self] genreId in
-            
+        viewModel.output.showEmpty.sink { [weak self] _ in
+            let emptyView = UIView.createFromNib(EmptyMoviesReviewView.self)
+            self?.view.addSubview(emptyView)
         }.store(in: &subscriptions)
     }
 }

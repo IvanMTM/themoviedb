@@ -14,7 +14,11 @@ enum Urls: String {
     case discover = "/discover/movie"
     
     static func review(id: String) -> String {
-        return Urls.base.string + "/movie/\(id)/reviews"
+        return Urls.detail(id: id) + "/reviews"
+    }
+    
+    static func detail(id: String) -> String {
+        return Urls.base.string + "/movie/\(id)"
     }
 }
 

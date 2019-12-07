@@ -62,26 +62,3 @@ private extension MovieReviewsDataSource {
             })
     }
 }
-
-// MARK: UICollectionViewDelegateFlowLayout
-//extension MovieReviewsDataSource: UITableViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-//        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//            let width = UIScreen.main.bounds.width / 3
-//            let height = width * 1.4
-//            return CGSize(width: width, height: height)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell,
-//        forItemAt indexPath: IndexPath) {
-//            guard let item = dataSource.itemIdentifier(for: indexPath) else {
-//                return
-//            }
-//            switch item {
-//            case let vm as LoadingCellViewModel:
-//                vm.onDisplayCompletion()
-//            default:
-//                break
-//            }
-//    }
-//}
