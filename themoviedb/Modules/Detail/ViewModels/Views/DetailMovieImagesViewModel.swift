@@ -9,11 +9,14 @@ final class DetailMovieImagesViewModel {
     private let backdropString: String
     private let posterString: String
     let reviewTapCompletion: () -> Void
+    let trailersTapCompletion: () -> Void
     
-    init(backdropString: String, posterString: String, reviewTapCompletion: @escaping () -> Void) {
+    init(backdropString: String, posterString: String, reviewTapCompletion: @escaping () -> Void,
+         trailersTapCompletion: @escaping () -> Void) {
         self.backdropString = backdropString
         self.posterString = posterString
         self.reviewTapCompletion = reviewTapCompletion
+        self.trailersTapCompletion = trailersTapCompletion
     }
 }
 

@@ -22,4 +22,9 @@ extension DetailMovieWireframe {
         let vc = MovieReviewsWireframe().create(movieId: movie.id, title: movie.title)
         viewController.navigationController?.present(vc, animated: true)
     }
+    
+    func showTrailers(videos: Videos) {
+        let vc = MovieTrailerWireframe().create(videos: videos)
+        viewController.show(vc, sender: nil)
+    }
 }

@@ -18,6 +18,15 @@
           "revision": "7ef9a314b12c1a31edb0d09d41fcba93143fe772",
           "version": "5.4.0"
         }
+      },
+      {
+        "package": "YoutubePlayerView",
+        "repositoryURL": "git@github.com:mukeshydv/YoutubePlayerView.git",
+        "state": {
+          "branch": null,
+          "revision": "8fbbf499f2df65a2ddcba8948737ee0e528125e0",
+          "version": "1.2.0"
+        }
       }
     ]
   },

@@ -13,6 +13,7 @@ protocol DetailMovieViewModelOutput {
     var showLoading: AnyPublisher<Bool, Never> { get }
     var showAlert: AnyPublisher<String, Never> { get }
     var showReviews: AnyPublisher<Movie, Never> { get }
+    var showTrailers: AnyPublisher<Videos, Never> { get }
 }
 
 protocol DetailMovieViewModelInput {
@@ -31,6 +32,7 @@ final class DetailMovieViewModel {
     private let showLoadingSubject = PassthroughSubject<Bool, Never>()
     private let showAlertSubject = PassthroughSubject<String, Never>()
     private let showReviewsSubject = PassthroughSubject<Movie, Never>()
+    private let showTrailersSubject = PassthroughSubject<Videos, Never>()
     
     let movie: Movie
     var detail: MovieDetails?
@@ -43,6 +45,10 @@ final class DetailMovieViewModel {
             reviewTapCompletion: { [weak self] in
                 guard let self = self else { return }
                 self.showReviewsSubject.send(self.movie)
+            },
+            trailersTapCompletion: { [weak self] in
+                guard let self = self else { return }
+                self.showTrailersSubject.send(detail.videos)
         })
     }
     var titleSubtitleViewModel: DetailMovieTitleSubtitleViewModel? {
@@ -120,6 +126,10 @@ extension DetailMovieViewModel: DetailMovieViewModelOutput {
     
     var showReviews: AnyPublisher<Movie, Never> {
         return showReviewsSubject.eraseToAnyPublisher()
+    }
+    
+    var showTrailers: AnyPublisher<Videos, Never> {
+        return showTrailersSubject.eraseToAnyPublisher()
     }
 }
 

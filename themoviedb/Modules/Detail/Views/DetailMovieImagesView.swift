@@ -11,6 +11,7 @@ final class DetailMovieImagesView: BaseView {
     @IBOutlet weak var backdropAlphaView: UIView!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var reviewsButton: UIButton!
+    @IBOutlet weak var trailersButton: UIButton!
     
     private var viewModel: DetailMovieImagesViewModel!
     
@@ -45,6 +46,10 @@ private extension DetailMovieImagesView {
     func bindEvents() {
         reviewsButton.publisher(for: .touchUpInside).sink { [weak self] _ in
             self?.viewModel?.reviewTapCompletion()
+        }.store(in: &subscriptions)
+        
+        trailersButton.publisher(for: .touchUpInside).sink { [weak self] _ in
+            self?.viewModel?.trailersTapCompletion()
         }.store(in: &subscriptions)
     }
 }

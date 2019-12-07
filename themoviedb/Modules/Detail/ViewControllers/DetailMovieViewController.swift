@@ -65,6 +65,10 @@ private extension DetailMovieViewController {
         viewModel.output.showReviews.sink { [weak self] movie in
             self?.wireframe.showReview(movie: movie)
         }.store(in: &subscriptions)
+        
+        viewModel.output.showTrailers.sink { [weak self] videos in
+            self?.wireframe.showTrailers(videos: videos)
+        }.store(in: &subscriptions)
     }
     
     func createInformationView(viewModel: DetailMovieInformationViewModel) -> DetailMovieInformationView {

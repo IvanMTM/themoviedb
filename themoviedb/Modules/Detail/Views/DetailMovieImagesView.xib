@@ -46,11 +46,19 @@
                     </constraints>
                     <state key="normal" title="Reviews"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLk-my-F98">
+                    <rect key="frame" x="133" y="190" width="50" height="30"/>
+                    <state key="normal" title="Trailers">
+                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="VaD-c3-9m5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Chq-iU-fkh"/>
+                <constraint firstItem="4ab-rz-CCf" firstAttribute="top" secondItem="qLk-my-F98" secondAttribute="bottom" id="Hbo-1t-xnv"/>
                 <constraint firstItem="EGx-a2-gM8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Ia5-lS-oJM"/>
+                <constraint firstItem="qLk-my-F98" firstAttribute="leading" secondItem="EGx-a2-gM8" secondAttribute="trailing" constant="8" id="M4j-rH-BSq"/>
                 <constraint firstAttribute="bottom" secondItem="4ab-rz-CCf" secondAttribute="bottom" id="MBw-3P-15f"/>
                 <constraint firstItem="4ab-rz-CCf" firstAttribute="leading" secondItem="EGx-a2-gM8" secondAttribute="trailing" constant="8" id="NSq-Xj-nT9"/>
                 <constraint firstItem="VaD-c3-9m5" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="0.7" id="XTy-hW-HWu"/>
@@ -65,6 +73,7 @@
                 <outlet property="backdropImageView" destination="BWi-04-eBI" id="7UR-pz-xN3"/>
                 <outlet property="posterImageView" destination="EGx-a2-gM8" id="2ez-JZ-gZZ"/>
                 <outlet property="reviewsButton" destination="4ab-rz-CCf" id="dJS-hn-oiB"/>
+                <outlet property="trailersButton" destination="qLk-my-F98" id="5SW-ex-9bh"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="104.34782608695653"/>
         </view>
