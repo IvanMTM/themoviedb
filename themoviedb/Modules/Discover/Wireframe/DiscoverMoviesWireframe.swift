@@ -20,4 +20,8 @@ final class DiscoverMoviesWireframe {
 
 // MARK: Public
 extension DiscoverMoviesWireframe {
+    func showDetail(movie: Movie) {
+        let vc = MovieReviewsWireframe().create(movieId: movie.id, title: movie.title)
+        viewController.navigationController?.present(vc, animated: true)
+    }
 }

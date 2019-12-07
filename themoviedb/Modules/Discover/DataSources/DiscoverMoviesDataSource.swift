@@ -5,10 +5,10 @@
 
 import UIKit
 
-private typealias DataSource = UICollectionViewDiffableDataSource<DiscoverMoviesSection, ListDiffable>
-private typealias Snapshot = NSDiffableDataSourceSnapshot<DiscoverMoviesSection, ListDiffable>
+private typealias DataSource = UICollectionViewDiffableDataSource<Section, ListDiffable>
+private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, ListDiffable>
 
-private enum DiscoverMoviesSection: CaseIterable {
+private enum Section: CaseIterable {
     case main, loading
 }
 
@@ -29,17 +29,17 @@ final class DiscoverMoviesDataSource: NSObject {
 extension DiscoverMoviesDataSource {
     func update(viewModels: [ListDiffable]) {
         var snapshot = Snapshot()
-        snapshot.appendSections(DiscoverMoviesSection.allCases)
+        snapshot.appendSections(Section.allCases)
         snapshot.appendItems(viewModels, toSection: .main)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
 // MARK: Private
-extension DiscoverMoviesDataSource {
+private extension DiscoverMoviesDataSource {
     func registerCells() {
         collectionView.registerNib(DiscoverMovieCell.self)
-        collectionView.registerNib(LoadingCell.self)
+        collectionView.registerNib(LoadingCollectionCell.self)
     }
 }
 
@@ -55,7 +55,7 @@ private extension DiscoverMoviesDataSource {
                     cell.bind(viewModel: vm)
                     return cell
                 case _ as LoadingCellViewModel:
-                    let cell: LoadingCell = collectionView.dequeueCell(forIndexPath: indexPath)
+                    let cell: LoadingCollectionCell = collectionView.dequeueCell(forIndexPath: indexPath)
                     return cell
                 default:
                     return nil
@@ -84,5 +84,17 @@ extension DiscoverMoviesDataSource: UICollectionViewDelegateFlowLayout {
             default:
                 break
             }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else {
+            return
+        }
+        switch item {
+        case let vm as DiscoverMovieViewModel:
+            vm.tapCompletion()
+        default:
+            break
+        }
     }
 }

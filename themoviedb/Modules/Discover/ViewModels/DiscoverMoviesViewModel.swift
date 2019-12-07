@@ -7,13 +7,16 @@ import Foundation
 import Combine
 
 protocol DiscoverMoviesViewModelOutput {
-    var updateTableView: AnyPublisher<[ListDiffable], Never> { get }
+    var updateCollection: AnyPublisher<[ListDiffable], Never> { get }
     var title: AnyPublisher<String, Never> { get }
     var showLoading: AnyPublisher<Bool, Never> { get }
+    var showAlert: AnyPublisher<String, Never> { get }
+    var showDetailMovie: AnyPublisher<Movie, Never> { get }
 }
 
 protocol DiscoverMoviesViewModelInput {
     func onViewDidLoad()
+    func onLoadMore()
 }
 
 protocol DiscoverMoviesViewModelType {
@@ -22,33 +25,44 @@ protocol DiscoverMoviesViewModelType {
 }
 
 final class DiscoverMoviesViewModel {
-    private let updateTableViewSubject = PassthroughSubject<[ListDiffable], Never>()
+    private let updateCollectionSubject = PassthroughSubject<[ListDiffable], Never>()
     private let titleSubject = PassthroughSubject<String, Never>()
     private let showLoadingSubject = PassthroughSubject<Bool, Never>()
+    private let showAlertSubject = PassthroughSubject<String, Never>()
+    private let showDetailMovieSubject = PassthroughSubject<Movie, Never>()
     
     private let genre: Genre
     private var page = 1
-    private let perPage = 20
+    private var totalPages: Int?
+    private var canLoadMore: Bool {
+        guard let totalPages = totalPages, page <= totalPages else {
+            return false
+        }
+        return true
+    }
     
-    private var movies = [DiscoverMovieList.Result]()
+    private var movies = [Movie]()
     private var items: [ListDiffable] {
-        let items: [ListDiffable] = movieViewModels + [loadingViewModel]
+        var items: [ListDiffable] = movieViewModels
+        if let loadingViewModel = loadingViewModel {
+            items += [loadingViewModel]
+        }
         return items
     }
-    private var loadingViewModel: LoadingCellViewModel {
-        return LoadingCellViewModel(
+    private var loadingViewModel: LoadingCellViewModel? {
+        return canLoadMore ? LoadingCellViewModel(
             id: 0,
             onDisplayCompletion: { [weak self] in
-                self?.requestMovies()
-        })
+                self?.onLoadMore()
+        }) : nil
     }
     private var movieViewModels: [DiscoverMovieViewModel] {
-        return movies.map {
-            DiscoverMovieViewModel(
-                id: $0.id,
-                imageString: Urls.images.string + ConfigurationManager.shared.posterSmallSize + $0.posterPath,
+        return movies.map { (movie) -> DiscoverMovieViewModel in
+            return DiscoverMovieViewModel(
+                id: movie.id,
+                imageString: Urls.images.string + ConfigurationManager.shared.posterSmallSize + movie.posterPath,
                 tapCompletion: { [weak self] in
-                    
+                    self?.showDetailMovieSubject.send(movie)
             })
         }
     }
@@ -69,9 +83,10 @@ private extension DiscoverMoviesViewModel {
             case .success(let model):
                 self.movies += model.results
                 self.page = model.page + 1
-                self.updateTableViewSubject.send(self.items)
+                self.totalPages = model.totalPages
+                self.updateCollectionSubject.send(self.items)
             case .failure(let error):
-                break
+                self.showAlertSubject.send(error.message)
             }
         }
     }
@@ -83,12 +98,19 @@ extension DiscoverMoviesViewModel: DiscoverMoviesViewModelInput {
         requestMovies()
         titleSubject.send(genre.name)
     }
+    
+    func onLoadMore() {
+        guard canLoadMore else {
+            return
+        }
+        requestMovies()
+    }
 }
 
 // MARK: DiscoverMoviesViewModelOutput
 extension DiscoverMoviesViewModel: DiscoverMoviesViewModelOutput {
-    var updateTableView: AnyPublisher<[ListDiffable], Never> {
-        return updateTableViewSubject.eraseToAnyPublisher()
+    var updateCollection: AnyPublisher<[ListDiffable], Never> {
+        return updateCollectionSubject.eraseToAnyPublisher()
     }
     
     var title: AnyPublisher<String, Never> {
@@ -97,6 +119,14 @@ extension DiscoverMoviesViewModel: DiscoverMoviesViewModelOutput {
     
     var showLoading: AnyPublisher<Bool, Never> {
         return showLoadingSubject.eraseToAnyPublisher()
+    }
+    
+    var showAlert: AnyPublisher<String, Never> {
+        return showAlertSubject.eraseToAnyPublisher()
+    }
+    
+    var showDetailMovie: AnyPublisher<Movie, Never> {
+        return showDetailMovieSubject.eraseToAnyPublisher()
     }
 }
 

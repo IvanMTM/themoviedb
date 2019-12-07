@@ -3,8 +3,6 @@
 // Copyright © 2019 OVO. All rights reserved.
 // 
 
-import Foundation
-
 struct Configuration: Codable {
     let images: Images
     let changeKeys: [String]

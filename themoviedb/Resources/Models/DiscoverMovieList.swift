@@ -1,9 +1,9 @@
 //
 // Created by OVO on 05/12/19.
 // Copyright © 2019 OVO. All rights reserved.
-// 
+//
 
-import Foundation
+typealias Movie = DiscoverMovieList.Result
 
 struct DiscoverMovieList: Codable {
     let page: Int

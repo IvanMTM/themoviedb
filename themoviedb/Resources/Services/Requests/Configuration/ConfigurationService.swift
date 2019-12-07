@@ -3,8 +3,6 @@
 // Copyright © 2019 OVO. All rights reserved.
 // 
 
-import Foundation
-
 final class ConfigurationService {
     func get(completion: @escaping (Result<Configuration, NetworkError>) -> Void) {
             _ = ConfigurationRequest().perform(completion: completion)

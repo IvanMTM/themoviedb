@@ -1,17 +1,16 @@
 //
-// Created by OVO on 05/12/19.
+// Created by OVO on 07/12/19.
 // Copyright © 2019 OVO. All rights reserved.
 // 
 
 import UIKit
-import Combine
 
-final class DiscoverMoviesViewController: BaseViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+final class MovieReviewsViewController: BaseViewController {
+    @IBOutlet weak var tableView: UITableView!
     
-    var dataSource: DiscoverMoviesDataSource!
-    var viewModel: DiscoverMoviesViewModelType!
-    var wireframe: DiscoverMoviesWireframe!
+    var dataSource: MovieReviewsDataSource!
+    var viewModel: MovieReviewsViewModelType!
+    var wireframe: MovieReviewsWireframe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +21,9 @@ final class DiscoverMoviesViewController: BaseViewController {
 }
 
 // MARK: Private
-private extension DiscoverMoviesViewController {
+private extension MovieReviewsViewController {
     func setupView() {
-        dataSource = DiscoverMoviesDataSource(collectionView: collectionView)
+        dataSource = MovieReviewsDataSource(tableView: tableView)
     }
     
     func bindViewModel() {
@@ -32,7 +31,7 @@ private extension DiscoverMoviesViewController {
             self?.dataSource.update(viewModels: cellViewModels)
         }.store(in: &subscriptions)
         
-        viewModel.output.title.sink { [weak self] title in
+        viewModel.output.showTitle.sink { [weak self] title in
             self?.title = title
         }.store(in: &subscriptions)
         
@@ -42,10 +41,6 @@ private extension DiscoverMoviesViewController {
         
         viewModel.output.showAlert.sink { [weak self] genreId in
             
-        }.store(in: &subscriptions)
-        
-        viewModel.output.showDetailMovie.sink { [weak self] movie in
-            self?.wireframe.showDetail(movie: movie)
         }.store(in: &subscriptions)
     }
 }
