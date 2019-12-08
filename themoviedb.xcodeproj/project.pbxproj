@@ -46,6 +46,7 @@
 		94000EDA239BE4510012FFDC /* MovieTrailerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94000ED9239BE4510012FFDC /* MovieTrailerWireframe.swift */; };
 		94000EDC239BE4830012FFDC /* MovieTrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94000EDB239BE4830012FFDC /* MovieTrailerViewController.swift */; };
 		94000EDE239BEE130012FFDC /* MovieTrailerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94000EDD239BEE130012FFDC /* MovieTrailerViewController.xib */; };
+		94000EE2239D445F0012FFDC /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94000EE1239D445F0012FFDC /* BaseViewModel.swift */; };
 		94823E5D23995EE400BE0FCF /* DiscoverMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E5C23995EE400BE0FCF /* DiscoverMovieViewModel.swift */; };
 		94823E5F2399F2B800BE0FCF /* ListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E5E2399F2B800BE0FCF /* ListDiffable.swift */; };
 		94823E62239A5FA100BE0FCF /* DiscoverMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94823E61239A5FA100BE0FCF /* DiscoverMovieCell.swift */; };
@@ -133,6 +134,7 @@
 		94000ED9239BE4510012FFDC /* MovieTrailerWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerWireframe.swift; sourceTree = "<group>"; };
 		94000EDB239BE4830012FFDC /* MovieTrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerViewController.swift; sourceTree = "<group>"; };
 		94000EDD239BEE130012FFDC /* MovieTrailerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTrailerViewController.xib; sourceTree = "<group>"; };
+		94000EE1239D445F0012FFDC /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		94823E5C23995EE400BE0FCF /* DiscoverMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMovieViewModel.swift; sourceTree = "<group>"; };
 		94823E5E2399F2B800BE0FCF /* ListDiffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDiffable.swift; sourceTree = "<group>"; };
 		94823E61239A5FA100BE0FCF /* DiscoverMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMovieCell.swift; sourceTree = "<group>"; };
@@ -401,6 +403,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		94000EE0239D44470012FFDC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				94000EE1239D445F0012FFDC /* BaseViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		94823E5B23995ECF00BE0FCF /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +527,7 @@
 				948252532398B37E00957E44 /* Extensions */,
 				9482524C2398AB2E00957E44 /* Models */,
 				9482524B2398AB1A00957E44 /* Services */,
+				94000EE0239D44470012FFDC /* ViewModels */,
 				94C5B5542398FBE800DE38B9 /* Views */,
 			);
 			path = Resources;
@@ -840,6 +851,7 @@
 				948252292398A3D500957E44 /* AppDelegate.swift in Sources */,
 				94000EB9239B8E460012FFDC /* DetailMovieViewModel.swift in Sources */,
 				94823E7B239A90F800BE0FCF /* UICollectionView+Deque.swift in Sources */,
+				94000EE2239D445F0012FFDC /* BaseViewModel.swift in Sources */,
 				94C5B5612399147000DE38B9 /* LoadingView.swift in Sources */,
 				94C5B571239946FD00DE38B9 /* DiscoverMoviesViewController.swift in Sources */,
 				94C5B5512398F61900DE38B9 /* UITableView+Deque.swift in Sources */,

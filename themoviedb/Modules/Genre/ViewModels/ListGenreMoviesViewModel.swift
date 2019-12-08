@@ -6,26 +6,20 @@
 import Combine
 import Foundation
 
-protocol ListGenreMoviesViewModelOutput {
-    var showLoading: AnyPublisher<Bool, Never> { get }
+protocol ListGenreMoviesViewModelOutput: BaseViewModelOutput {
     var showGenreList: AnyPublisher<[GenreViewModel], Never> { get }
-    var showAlert: AnyPublisher<String, Never> { get }
     var showDiscoverMovies: AnyPublisher<Genre, Never> { get }
 }
 
-protocol ListGenreMoviesViewModelInput {
-    func onViewDidLoad()
-}
+protocol ListGenreMoviesViewModelInput: BaseViewModelInput {}
 
 protocol ListGenreMoviesViewModelType {
     var input: ListGenreMoviesViewModelInput { get }
     var output: ListGenreMoviesViewModelOutput { get }
 }
 
-final class ListGenreMoviesViewModel {
-    private let showLoadingSubject = PassthroughSubject<Bool, Never>()
+final class ListGenreMoviesViewModel: BaseViewModel {
     private let showGenreListSubject = PassthroughSubject<[GenreViewModel], Never>()
-    private let showAlertSubject = PassthroughSubject<String, Never>()
     private let showDiscoverMoviesSubject = PassthroughSubject<Genre, Never>()
     
     private var genreList: [Genre]?
@@ -64,16 +58,8 @@ private extension ListGenreMoviesViewModel {
 
 // MARK: ListGenreMoviesViewModelOutput
 extension ListGenreMoviesViewModel: ListGenreMoviesViewModelOutput {
-    var showLoading: AnyPublisher<Bool, Never> {
-        return showLoadingSubject.eraseToAnyPublisher()
-    }
-    
     var showGenreList: AnyPublisher<[GenreViewModel], Never> {
         return showGenreListSubject.eraseToAnyPublisher()
-    }
-    
-    var showAlert: AnyPublisher<String, Never> {
-        return showAlertSubject.eraseToAnyPublisher()
     }
     
     var showDiscoverMovies: AnyPublisher<Genre, Never> {

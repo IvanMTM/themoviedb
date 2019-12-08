@@ -32,7 +32,7 @@ private extension DiscoverMoviesViewController {
             self?.dataSource.update(viewModels: cellViewModels)
         }.store(in: &subscriptions)
         
-        viewModel.output.title.sink { [weak self] title in
+        viewModel.output.showTitle.sink { [weak self] title in
             self?.title = title
         }.store(in: &subscriptions)
         

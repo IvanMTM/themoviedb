@@ -6,15 +6,12 @@
 import Foundation
 import Combine
 
-protocol MovieReviewsViewModelOutput {
-    var showLoading: AnyPublisher<Bool, Never> { get }
-    var showTitle: AnyPublisher<String, Never> { get }
+protocol MovieReviewsViewModelOutput: BaseViewModelOutput {
     var updateCollection: AnyPublisher<[ListDiffable], Never> { get }
     var showEmpty: AnyPublisher<Bool, Never> { get }
 }
 
-protocol MovieReviewsViewModelInput {
-    func onViewDidLoad()
+protocol MovieReviewsViewModelInput: BaseViewModelInput {
     func onLoadMore()
 }
 
@@ -23,9 +20,7 @@ protocol MovieReviewsViewModelType {
     var output: MovieReviewsViewModelOutput { get }
 }
 
-final class MovieReviewsViewModel {
-    private let showLoadingSubject = PassthroughSubject<Bool, Never>()
-    private let showTitleSubject = PassthroughSubject<String, Never>()
+final class MovieReviewsViewModel: BaseViewModel {
     private let updateCollectionSubject = PassthroughSubject<[ListDiffable], Never>()
     private let showEmptySubject = PassthroughSubject<Bool, Never>()
     
@@ -109,14 +104,6 @@ extension MovieReviewsViewModel: MovieReviewsViewModelInput {
 
 // MARK: MovieReviewsViewModelOutput
 extension MovieReviewsViewModel: MovieReviewsViewModelOutput {
-    var showLoading: AnyPublisher<Bool, Never> {
-        return showLoadingSubject.eraseToAnyPublisher()
-    }
-    
-    var showTitle: AnyPublisher<String, Never> {
-        return showTitleSubject.eraseToAnyPublisher()
-    }
-    
     var updateCollection: AnyPublisher<[ListDiffable], Never> {
         return updateCollectionSubject.eraseToAnyPublisher()
     }

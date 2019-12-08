@@ -6,20 +6,18 @@
 import Foundation
 import Combine
 
-protocol MovieTrailerViewModelOutput {
+protocol MovieTrailerViewModelOutput: BaseViewModelOutput {
     var updatePlayerViews: AnyPublisher<[String], Never> { get }
 }
 
-protocol MovieTrailerViewModelInput {
-    func onViewDidLoad()
-}
+protocol MovieTrailerViewModelInput: BaseViewModelInput {}
 
 protocol MovieTrailerViewModelType {
     var input: MovieTrailerViewModelInput { get }
     var output: MovieTrailerViewModelOutput { get }
 }
 
-final class MovieTrailerViewModel {
+final class MovieTrailerViewModel: BaseViewModel {
     let updatePlayerViewsSubject = PassthroughSubject<[String], Never>()
     
     let videos: Videos

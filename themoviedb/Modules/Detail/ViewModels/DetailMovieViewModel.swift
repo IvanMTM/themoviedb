@@ -6,31 +6,25 @@
 import Foundation
 import Combine
 
-protocol DetailMovieViewModelOutput {
+protocol DetailMovieViewModelOutput: BaseViewModelOutput {
     var updateImageView: AnyPublisher<DetailMovieImagesViewModel, Never> { get }
     var updateTitleSubtitleView: AnyPublisher<DetailMovieTitleSubtitleViewModel, Never> { get }
     var updateInformationViews: AnyPublisher<[DetailMovieInformationViewModel], Never> { get }
-    var showLoading: AnyPublisher<Bool, Never> { get }
-    var showAlert: AnyPublisher<String, Never> { get }
     var showReviews: AnyPublisher<Movie, Never> { get }
     var showTrailers: AnyPublisher<Videos, Never> { get }
 }
 
-protocol DetailMovieViewModelInput {
-    func onViewDidLoad()
-}
+protocol DetailMovieViewModelInput: BaseViewModelInput {}
 
 protocol DetailMovieViewModelType {
     var input: DetailMovieViewModelInput { get }
     var output: DetailMovieViewModelOutput { get }
 }
 
-final class DetailMovieViewModel {
+final class DetailMovieViewModel: BaseViewModel {
     private let updateImageViewSubject = PassthroughSubject<DetailMovieImagesViewModel, Never>()
     private let updateTitleSubtitleViewSubject = PassthroughSubject<DetailMovieTitleSubtitleViewModel, Never>()
     private let updateInformationViewsSubject = PassthroughSubject<[DetailMovieInformationViewModel], Never>()
-    private let showLoadingSubject = PassthroughSubject<Bool, Never>()
-    private let showAlertSubject = PassthroughSubject<String, Never>()
     private let showReviewsSubject = PassthroughSubject<Movie, Never>()
     private let showTrailersSubject = PassthroughSubject<Videos, Never>()
     
@@ -114,14 +108,6 @@ extension DetailMovieViewModel: DetailMovieViewModelOutput {
     
     var updateInformationViews: AnyPublisher<[DetailMovieInformationViewModel], Never> {
         return updateInformationViewsSubject.eraseToAnyPublisher()
-    }
-    
-    var showLoading: AnyPublisher<Bool, Never> {
-        return showLoadingSubject.eraseToAnyPublisher()
-    }
-    
-    var showAlert: AnyPublisher<String, Never> {
-        return showAlertSubject.eraseToAnyPublisher()
     }
     
     var showReviews: AnyPublisher<Movie, Never> {

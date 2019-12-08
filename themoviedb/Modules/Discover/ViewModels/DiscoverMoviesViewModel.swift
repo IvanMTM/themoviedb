@@ -6,16 +6,12 @@
 import Foundation
 import Combine
 
-protocol DiscoverMoviesViewModelOutput {
+protocol DiscoverMoviesViewModelOutput: BaseViewModelOutput {
     var updateCollection: AnyPublisher<[ListDiffable], Never> { get }
-    var title: AnyPublisher<String, Never> { get }
-    var showLoading: AnyPublisher<Bool, Never> { get }
-    var showAlert: AnyPublisher<String, Never> { get }
     var showDetailMovie: AnyPublisher<Movie, Never> { get }
 }
 
-protocol DiscoverMoviesViewModelInput {
-    func onViewDidLoad()
+protocol DiscoverMoviesViewModelInput: BaseViewModelInput {
     func onLoadMore()
 }
 
@@ -24,11 +20,8 @@ protocol DiscoverMoviesViewModelType {
     var output: DiscoverMoviesViewModelOutput { get }
 }
 
-final class DiscoverMoviesViewModel {
+final class DiscoverMoviesViewModel: BaseViewModel {
     private let updateCollectionSubject = PassthroughSubject<[ListDiffable], Never>()
-    private let titleSubject = PassthroughSubject<String, Never>()
-    private let showLoadingSubject = PassthroughSubject<Bool, Never>()
-    private let showAlertSubject = PassthroughSubject<String, Never>()
     private let showDetailMovieSubject = PassthroughSubject<Movie, Never>()
     
     private let genre: Genre
@@ -96,7 +89,7 @@ private extension DiscoverMoviesViewModel {
 extension DiscoverMoviesViewModel: DiscoverMoviesViewModelInput {
     func onViewDidLoad() {
         requestMovies()
-        titleSubject.send(genre.name)
+        showTitleSubject.send(genre.name)
     }
     
     func onLoadMore() {
@@ -111,18 +104,6 @@ extension DiscoverMoviesViewModel: DiscoverMoviesViewModelInput {
 extension DiscoverMoviesViewModel: DiscoverMoviesViewModelOutput {
     var updateCollection: AnyPublisher<[ListDiffable], Never> {
         return updateCollectionSubject.eraseToAnyPublisher()
-    }
-    
-    var title: AnyPublisher<String, Never> {
-        return titleSubject.eraseToAnyPublisher()
-    }
-    
-    var showLoading: AnyPublisher<Bool, Never> {
-        return showLoadingSubject.eraseToAnyPublisher()
-    }
-    
-    var showAlert: AnyPublisher<String, Never> {
-        return showAlertSubject.eraseToAnyPublisher()
     }
     
     var showDetailMovie: AnyPublisher<Movie, Never> {
