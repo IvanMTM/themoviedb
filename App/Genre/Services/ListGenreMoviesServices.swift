@@ -4,6 +4,8 @@
 //
 
 import Kit
+import Models
+import APIServices
 
 final class ListGenreMoviesServices {
     func getListGenre(completion: @escaping (Result<GenreList, NetworkError>) -> Void) {

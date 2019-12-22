@@ -5,6 +5,7 @@
 
 import Foundation
 import Kit
+import Models
 
 final class GenreViewModel {
     private let genre: Genre

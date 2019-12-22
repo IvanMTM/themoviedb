@@ -6,6 +6,7 @@
 import Foundation
 import Combine
 import Kit
+import Models
 
 protocol MovieTrailerViewModelOutput: BaseViewModelOutput {
     var updatePlayerViews: AnyPublisher<[String], Never> { get }

@@ -6,7 +6,7 @@
 import Foundation
 import Combine
 import Kit
-
+import Models
 
 protocol MovieReviewsViewModelOutput: BaseViewModelOutput {
     var updateCollection: AnyPublisher<[ListDiffable], Never> { get }

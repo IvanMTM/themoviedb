@@ -50,3 +50,14 @@ private extension Alamofire.Session {
         return headers
     }
 }
+
+private extension Dictionary {
+    static func +(l: Dictionary, r: Dictionary?) -> Dictionary {
+        guard let r = r else { return l }
+        return r.reduce(l) {
+            var nres = $0
+            nres[$1.key] = $1.value
+            return nres
+        }
+    }
+}

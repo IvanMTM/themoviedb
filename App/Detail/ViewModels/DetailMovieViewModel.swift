@@ -6,6 +6,7 @@
 import Foundation
 import Combine
 import Kit
+import Models
 
 protocol DetailMovieViewModelOutput: BaseViewModelOutput {
     var updateImageView: AnyPublisher<DetailMovieImagesViewModel, Never> { get }
@@ -35,8 +36,8 @@ final class DetailMovieViewModel: BaseViewModel {
     var imageViewModel: DetailMovieImagesViewModel? {
         guard let detail = detail else { return nil }
         return DetailMovieImagesViewModel(
-            backdropString: detail.backdropString,
-            posterString: detail.posterString,
+            backdropString: detail.backdropString ?? "",
+            posterString: detail.posterString ?? "",
             reviewTapCompletion: { [weak self] in
                 guard let self = self else { return }
                 self.showReviewsSubject.send(self.movie)

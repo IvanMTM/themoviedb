@@ -6,6 +6,8 @@
 import Foundation
 import Combine
 import Kit
+import Models
+import APIServices
 
 protocol DiscoverMoviesViewModelOutput: BaseViewModelOutput {
     var updateCollection: AnyPublisher<[ListDiffable], Never> { get }
@@ -54,7 +56,7 @@ final class DiscoverMoviesViewModel: BaseViewModel {
         return movies.map { (movie) -> DiscoverMovieViewModel in
             return DiscoverMovieViewModel(
                 id: movie.id,
-                imageString: Urls.images.string + ConfigurationManager.shared.posterSmallSize + movie.posterPath,
+                imageString: ConfigurationManager.shared.basePosterSmallSizeUrl + movie.posterPath,
                 tapCompletion: { [weak self] in
                     self?.showDetailMovieSubject.send(movie)
             })

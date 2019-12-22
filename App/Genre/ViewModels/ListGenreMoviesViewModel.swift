@@ -6,6 +6,7 @@
 import Combine
 import Foundation
 import Kit
+import Models
 
 protocol ListGenreMoviesViewModelOutput: BaseViewModelOutput {
     var showGenreList: AnyPublisher<[GenreViewModel], Never> { get }

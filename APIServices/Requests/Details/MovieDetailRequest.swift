@@ -3,6 +3,8 @@
 // Copyright © 2019 OVO. All rights reserved.
 //
 
+import Urls
+
 public struct MovieDetailRequest: Request {
     let id: String
     public var url: String {

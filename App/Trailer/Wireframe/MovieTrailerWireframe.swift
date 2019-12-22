@@ -4,6 +4,7 @@
 //
 
 import Kit
+import Models
 
 final class MovieTrailerWireframe {
     private weak var viewController: MovieTrailerViewController!

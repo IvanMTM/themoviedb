@@ -3,8 +3,8 @@
 // Copyright © 2019 OVO. All rights reserved.
 // 
 
-import Foundation
 import Kit
+import Models
 
 final class DiscoverMoviesWireframe {
     private weak var viewController: DiscoverMoviesViewController!

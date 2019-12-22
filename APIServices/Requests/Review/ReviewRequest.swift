@@ -1,7 +1,9 @@
 //
 // Created by OVO on 07/12/19.
 // Copyright © 2019 OVO. All rights reserved.
-// 
+//
+
+import Urls
 
 public struct ReviewRequest: Request {
     let movieId: String

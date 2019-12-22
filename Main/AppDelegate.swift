@@ -6,6 +6,7 @@
 import UIKit
 import App
 import Kit
+import APIServices
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

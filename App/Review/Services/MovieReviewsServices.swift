@@ -5,6 +5,8 @@
 
 import Alamofire
 import Kit
+import Models
+import APIServices
 
 final class MovieReviewsServices {
     private var getReviewsRequest: DataRequest?

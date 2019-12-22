@@ -5,6 +5,7 @@
 
 import UIKit
 import Kit
+import Models
 
 public final class ListGenreMoviesWireframe {
     private weak var viewController: ListGenreMoviesViewController!

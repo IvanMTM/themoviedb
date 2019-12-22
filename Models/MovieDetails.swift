@@ -3,10 +3,10 @@
 // Copyright © 2019 OVO. All rights reserved.
 // 
 
-public struct MovieDetails: Codable {
+public class MovieDetails: Codable {
     let adult: Bool
-    private let backdropPath: String?
-    let belongsToCollection: BelongsToCollection?
+    public let backdropPath: String?
+    public let belongsToCollection: BelongsToCollection?
     let budget: Double
     private let genres: [Genre]
     let homepage: String?
@@ -16,7 +16,7 @@ public struct MovieDetails: Codable {
     let originalTitle: String
     public let overview: String
     let popularity: Double
-    private let posterPath: String?
+    public let posterPath: String?
     let productionCompanies: [ProductionCompany]
     let productionCountries: [ProductionCountry]
     let releaseDate: String
@@ -30,6 +30,9 @@ public struct MovieDetails: Codable {
     public let videos: Videos
     let voteAverage: Double
     let voteCount: Int
+    
+    public var backdropString: String?
+    public var posterString: String?
 }
 
 // MARK: BelongsToCollection
@@ -38,7 +41,7 @@ public extension MovieDetails {
         let id: Int
         let name: String
         let posterPath: String?
-        let backdropPath: String?
+        public let backdropPath: String?
     }
 }
 
@@ -70,26 +73,6 @@ public extension MovieDetails {
 
 // MARK: Public
 public extension MovieDetails {
-    var backdropString: String {
-        if let backdropPath = belongsToCollection?.backdropPath {
-            return Urls.images.string +
-                ConfigurationManager.shared.backdropMediumSize + backdropPath
-        } else if let backdropPath = backdropPath {
-            return Urls.images.string +
-                ConfigurationManager.shared.backdropMediumSize + backdropPath
-        } else {
-            return ""
-        }
-    }
-    
-    var posterString: String {
-        if let posterPath = posterPath {
-            return Urls.images.string + ConfigurationManager.shared.posterSmallSize + posterPath
-        } else {
-            return ""
-        }
-    }
-    
     var joinedGenres: String {
         return genres.map { $0.name }.joined(separator: ", ")
     }

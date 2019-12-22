@@ -4,6 +4,7 @@
 //
 
 import Kit
+import Models
 
 final class DetailMovieWireframe {
     private weak var viewController: DetailMovieViewController!

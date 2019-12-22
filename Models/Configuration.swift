@@ -3,19 +3,19 @@
 // Copyright © 2019 OVO. All rights reserved.
 // 
 
-struct Configuration: Codable {
-    let images: Images
+public struct Configuration: Codable {
+    public let images: Images
     let changeKeys: [String]
 }
 
 // MARK: Images
-extension Configuration {
+public extension Configuration {
     struct Images: Codable {
-        let baseUrl: String
+        public let baseUrl: String
         let secureBaseUrl: String
-        let backdropSizes: [String]
+        public let backdropSizes: [String]
         let logoSizes: [String]
-        let posterSizes: [String]
+        public let posterSizes: [String]
         let profileSizes: [String]
         let stillSizes: [String]
     }
