@@ -321,12 +321,12 @@
 		948039B023AE46810097A12A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				948039B623AE46810097A12A /* Configuration.swift */,
 				948039B123AE46810097A12A /* DiscoverMovieList.swift */,
-				948039B223AE46810097A12A /* Videos.swift */,
 				948039B323AE46810097A12A /* GenreList.swift */,
 				948039B423AE46810097A12A /* MovieDetails.swift */,
 				948039B523AE46810097A12A /* MovieReviews.swift */,
-				948039B623AE46810097A12A /* Configuration.swift */,
+				948039B223AE46810097A12A /* Videos.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -334,8 +334,8 @@
 		948039B723AE46810097A12A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				948039B823AE46810097A12A /* Authorization.swift */,
 				948039B923AE46810097A12A /* Requests */,
+				948039B823AE46810097A12A /* Authorization.swift */,
 				948039C723AE46810097A12A /* SessionManager+Extensions.swift */,
 				948039C823AE46810097A12A /* Urls.swift */,
 			);
@@ -346,12 +346,12 @@
 			isa = PBXGroup;
 			children = (
 				948039BA23AE46810097A12A /* Configuration */,
-				948039BD23AE46810097A12A /* Discover */,
 				948039BF23AE46810097A12A /* Details */,
+				948039BD23AE46810097A12A /* Discover */,
 				948039C123AE46810097A12A /* Genre */,
-				948039C323AE46810097A12A /* Request.swift */,
 				948039C423AE46810097A12A /* Review */,
 				948039C623AE46810097A12A /* NetworkError.swift */,
+				948039C323AE46810097A12A /* Request.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -409,8 +409,8 @@
 		948039CB23AE46810097A12A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				948039CE23AE46810097A12A /* Dictionary+Ops.swift */,
 				948039CF23AE46810097A12A /* Collection+SafeIndex.swift */,
+				948039CE23AE46810097A12A /* Dictionary+Ops.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -429,8 +429,8 @@
 		94803A1A23AE4B100097A12A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				94803A1B23AE4B100097A12A /* Loading */,
 				94803A2323AE4B100097A12A /* Base */,
+				94803A1B23AE4B100097A12A /* Loading */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,10 +447,10 @@
 		94803A1C23AE4B100097A12A /* LoadingCell */ = {
 			isa = PBXGroup;
 			children = (
+				94803A2123AE4B100097A12A /* LoadingCollectionCell.swift */,
+				94803A2023AE4B100097A12A /* LoadingCollectionCell.xib */,
 				94803A1D23AE4B100097A12A /* LoadingTableCell.swift */,
 				94803A1F23AE4B100097A12A /* LoadingTableCell.xib */,
-				94803A2023AE4B100097A12A /* LoadingCollectionCell.xib */,
-				94803A2123AE4B100097A12A /* LoadingCollectionCell.swift */,
 			);
 			path = LoadingCell;
 			sourceTree = "<group>";
@@ -458,9 +458,9 @@
 		94803A2323AE4B100097A12A /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				94803A2423AE4B100097A12A /* BaseViewController.swift */,
-				94803A2523AE4B100097A12A /* BaseView.swift */,
 				94803A2623AE4B100097A12A /* BaseButton.swift */,
+				94803A2523AE4B100097A12A /* BaseView.swift */,
+				94803A2423AE4B100097A12A /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -504,8 +504,8 @@
 			children = (
 				948252282398A3D500957E44 /* AppDelegate.swift */,
 				948252312398A3D600957E44 /* Assets.xcassets */,
-				948252332398A3D600957E44 /* LaunchScreen.storyboard */,
 				948252362398A3D600957E44 /* Info.plist */,
+				948252332398A3D600957E44 /* LaunchScreen.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -527,11 +527,11 @@
 		94B364CC23AE78BF00D66A35 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				94B364CD23AE78BF00D66A35 /* ViewModels */,
-				94B364D323AE78BF00D66A35 /* Wireframe */,
-				94B364D523AE78BF00D66A35 /* ViewControllers */,
-				94B364D823AE78C000D66A35 /* Views */,
 				94B364DF23AE78C000D66A35 /* Services */,
+				94B364D523AE78BF00D66A35 /* ViewControllers */,
+				94B364CD23AE78BF00D66A35 /* ViewModels */,
+				94B364D823AE78C000D66A35 /* Views */,
+				94B364D323AE78BF00D66A35 /* Wireframe */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -549,8 +549,8 @@
 			isa = PBXGroup;
 			children = (
 				94B364D023AE78BF00D66A35 /* DetailMovieImagesViewModel.swift */,
-				94B364D123AE78BF00D66A35 /* DetailMovieTitleSubtitleViewModel.swift */,
 				94B364D223AE78BF00D66A35 /* DetailMovieInformationViewModel.swift */,
+				94B364D123AE78BF00D66A35 /* DetailMovieTitleSubtitleViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -575,12 +575,12 @@
 		94B364D823AE78C000D66A35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				94B364D923AE78C000D66A35 /* DetailMovieImagesView.xib */,
 				94B364DA23AE78C000D66A35 /* DetailMovieImagesView.swift */,
-				94B364DB23AE78C000D66A35 /* DetailMovieTitleSubtitleView.xib */,
+				94B364D923AE78C000D66A35 /* DetailMovieImagesView.xib */,
 				94B364DC23AE78C000D66A35 /* DetailMovieInformationView.swift */,
 				94B364DD23AE78C000D66A35 /* DetailMovieInformationView.xib */,
 				94B364DE23AE78C000D66A35 /* DetailMovieTitleSubtitleView.swift */,
+				94B364DB23AE78C000D66A35 /* DetailMovieTitleSubtitleView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -597,11 +597,11 @@
 			isa = PBXGroup;
 			children = (
 				94B364E223AE78C000D66A35 /* DataSources */,
-				94B364E423AE78C000D66A35 /* ViewModels */,
-				94B364E823AE78C000D66A35 /* Wireframe */,
-				94B364EA23AE78C000D66A35 /* ViewControllers */,
-				94B364ED23AE78C000D66A35 /* Views */,
 				94B364F223AE78C000D66A35 /* Services */,
+				94B364EA23AE78C000D66A35 /* ViewControllers */,
+				94B364E423AE78C000D66A35 /* ViewModels */,
+				94B364ED23AE78C000D66A35 /* Views */,
+				94B364E823AE78C000D66A35 /* Wireframe */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -652,9 +652,9 @@
 			isa = PBXGroup;
 			children = (
 				94B364EE23AE78C000D66A35 /* EmptyMoviesReviewView.swift */,
-				94B364EF23AE78C000D66A35 /* MovieReviewCell.xib */,
 				94B364F023AE78C000D66A35 /* EmptyMoviesReviewView.xib */,
 				94B364F123AE78C000D66A35 /* MovieReviewCell.swift */,
+				94B364EF23AE78C000D66A35 /* MovieReviewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -670,11 +670,11 @@
 		94B364F423AE78C000D66A35 /* Genre */ = {
 			isa = PBXGroup;
 			children = (
-				94B364F523AE78C000D66A35 /* ViewModels */,
-				94B364F923AE78C000D66A35 /* Wireframes */,
-				94B364FB23AE78C000D66A35 /* ViewControllers */,
-				94B364FE23AE78C000D66A35 /* Views */,
 				94B3650123AE78C000D66A35 /* Services */,
+				94B364FB23AE78C000D66A35 /* ViewControllers */,
+				94B364F523AE78C000D66A35 /* ViewModels */,
+				94B364FE23AE78C000D66A35 /* Views */,
+				94B364F923AE78C000D66A35 /* Wireframes */,
 			);
 			path = Genre;
 			sourceTree = "<group>";
@@ -716,8 +716,8 @@
 		94B364FE23AE78C000D66A35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				94B364FF23AE78C000D66A35 /* GenreView.xib */,
 				94B3650023AE78C000D66A35 /* GenreView.swift */,
+				94B364FF23AE78C000D66A35 /* GenreView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -733,9 +733,9 @@
 		94B3650323AE78C000D66A35 /* Trailer */ = {
 			isa = PBXGroup;
 			children = (
+				94B3650823AE78C000D66A35 /* ViewControllers */,
 				94B3650423AE78C000D66A35 /* ViewModels */,
 				94B3650623AE78C000D66A35 /* Wireframe */,
-				94B3650823AE78C000D66A35 /* ViewControllers */,
 			);
 			path = Trailer;
 			sourceTree = "<group>";
@@ -759,8 +759,8 @@
 		94B3650823AE78C000D66A35 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				94B3650923AE78C000D66A35 /* MovieTrailerViewController.xib */,
 				94B3650A23AE78C000D66A35 /* MovieTrailerViewController.swift */,
+				94B3650923AE78C000D66A35 /* MovieTrailerViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -769,11 +769,11 @@
 			isa = PBXGroup;
 			children = (
 				94B3650C23AE78C000D66A35 /* DataSources */,
-				94B3650E23AE78C000D66A35 /* ViewModels */,
-				94B3651223AE78C000D66A35 /* Wireframe */,
-				94B3651423AE78C000D66A35 /* ViewControllers */,
-				94B3651723AE78C000D66A35 /* Views */,
 				94B3651A23AE78C000D66A35 /* Services */,
+				94B3651423AE78C000D66A35 /* ViewControllers */,
+				94B3650E23AE78C000D66A35 /* ViewModels */,
+				94B3651723AE78C000D66A35 /* Views */,
+				94B3651223AE78C000D66A35 /* Wireframe */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -814,8 +814,8 @@
 		94B3651423AE78C000D66A35 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				94B3651523AE78C000D66A35 /* DiscoverMoviesViewController.xib */,
 				94B3651623AE78C000D66A35 /* DiscoverMoviesViewController.swift */,
+				94B3651523AE78C000D66A35 /* DiscoverMoviesViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1412,12 +1412,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 84;
 				DEVELOPMENT_TEAM = JJ3F2X5A8T;
 				INFOPLIST_FILE = Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = home.themoviedb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1430,12 +1432,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 84;
 				DEVELOPMENT_TEAM = JJ3F2X5A8T;
 				INFOPLIST_FILE = Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = home.themoviedb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1460,6 +1464,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = home.App;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1487,6 +1492,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = home.App;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

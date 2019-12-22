@@ -49,19 +49,19 @@ public extension Request {
 }
 
 // MARK: default value
-extension Request {
-    public var method: HTTPMethod {
+public extension Request {
+    var method: HTTPMethod {
         return .get
     }
-    public   
+    
     var parameters: [String: Any]? {
         return nil
     }
     
-    public var additionalHeaders: [String: String]? {
+    var additionalHeaders: [String: String]? {
         return nil
     }
-    public   
+    
     var encoding: Encoding {
         switch method {
         case .get: return .url
