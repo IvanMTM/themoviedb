@@ -22,7 +22,6 @@
 		94803A3223AE4B100097A12A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94803A2523AE4B100097A12A /* BaseView.swift */; };
 		94803A3323AE4B100097A12A /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94803A2623AE4B100097A12A /* BaseButton.swift */; };
 		94803A3423AE4B100097A12A /* UITableView+Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94803A2823AE4B100097A12A /* UITableView+Deque.swift */; };
-		94803A3523AE4B100097A12A /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94803A2923AE4B100097A12A /* UIControl+Combine.swift */; };
 		94803A3623AE4B100097A12A /* UICollectionView+Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94803A2A23AE4B100097A12A /* UICollectionView+Deque.swift */; };
 		94803A3723AE4B600097A12A /* LoadingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94803A1E23AE4B100097A12A /* LoadingCellViewModel.swift */; };
 		94803A3823AE4B940097A12A /* UIControlSubscription+UIControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948039AF23AE46810097A12A /* UIControlSubscription+UIControlPublisher.swift */; };
@@ -229,7 +228,6 @@
 		94803A2523AE4B100097A12A /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		94803A2623AE4B100097A12A /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		94803A2823AE4B100097A12A /* UITableView+Deque.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Deque.swift"; sourceTree = "<group>"; };
-		94803A2923AE4B100097A12A /* UIControl+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
 		94803A2A23AE4B100097A12A /* UICollectionView+Deque.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Deque.swift"; sourceTree = "<group>"; };
 		948252252398A3D500957E44 /* Main.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Main.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948252282398A3D500957E44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -420,6 +418,7 @@
 		94803A0823AE48480097A12A /* Ui-Kit */ = {
 			isa = PBXGroup;
 			children = (
+				94D3C54423AF638500CDEB8A /* AdditionalClasses */,
 				94803A2723AE4B100097A12A /* Extensions */,
 				94803A1A23AE4B100097A12A /* Views */,
 				94803A0A23AE48480097A12A /* Info.plist */,
@@ -471,8 +470,6 @@
 			isa = PBXGroup;
 			children = (
 				94803A2A23AE4B100097A12A /* UICollectionView+Deque.swift */,
-				94803A2923AE4B100097A12A /* UIControl+Combine.swift */,
-				948039AF23AE46810097A12A /* UIControlSubscription+UIControlPublisher.swift */,
 				94803A2823AE4B100097A12A /* UITableView+Deque.swift */,
 			);
 			path = Extensions;
@@ -937,6 +934,14 @@
 			path = Urls;
 			sourceTree = "<group>";
 		};
+		94D3C54423AF638500CDEB8A /* AdditionalClasses */ = {
+			isa = PBXGroup;
+			children = (
+				948039AF23AE46810097A12A /* UIControlSubscription+UIControlPublisher.swift */,
+			);
+			path = AdditionalClasses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1287,7 +1292,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				94803A3123AE4B100097A12A /* BaseViewController.swift in Sources */,
-				94803A3523AE4B100097A12A /* UIControl+Combine.swift in Sources */,
 				94803A2B23AE4B100097A12A /* LoadingTableCell.swift in Sources */,
 				94803A3423AE4B100097A12A /* UITableView+Deque.swift in Sources */,
 				94803A3023AE4B100097A12A /* LoadingView.swift in Sources */,
