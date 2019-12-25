@@ -7,7 +7,7 @@ import Foundation
 import Combine
 import Kit
 import Models
-import APIServices
+import API
 
 protocol DiscoverMoviesViewModelOutput: BaseViewModelOutput {
     var updateCollection: AnyPublisher<[ListDiffable], Never> { get }

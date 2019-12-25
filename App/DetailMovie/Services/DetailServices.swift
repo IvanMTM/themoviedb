@@ -5,7 +5,7 @@
 
 import Kit
 import Models
-import APIServices
+import API
 
 final class DetailServices {
     func getMovieDetail(movieId: String, completion: @escaping (Result<MovieDetails, NetworkError>) -> Void) {

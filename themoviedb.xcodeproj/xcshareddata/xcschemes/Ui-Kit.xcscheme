@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "94D3C49323AF327100CDEB8A"
-               BuildableName = "APIServices.framework"
-               BlueprintName = "APIServices"
+               BlueprintIdentifier = "94803A0623AE48480097A12A"
+               BuildableName = "Ui_Kit.framework"
+               BlueprintName = "Ui-Kit"
                ReferencedContainer = "container:themoviedb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94D3C49323AF327100CDEB8A"
-            BuildableName = "APIServices.framework"
-            BlueprintName = "APIServices"
+            BlueprintIdentifier = "94803A0623AE48480097A12A"
+            BuildableName = "Ui_Kit.framework"
+            BlueprintName = "Ui-Kit"
             ReferencedContainer = "container:themoviedb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

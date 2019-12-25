@@ -5,7 +5,7 @@
 
 import UIKit
 import Kit
-import class APIServices.ConfigurationManager
+import class API.ConfigurationManager
 import GenreMovie
 
 @UIApplicationMain

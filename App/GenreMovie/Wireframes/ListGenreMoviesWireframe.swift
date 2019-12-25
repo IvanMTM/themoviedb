@@ -11,6 +11,8 @@ import DiscoverMovie
 public final class ListGenreMoviesWireframe {
     private weak var viewController: ListGenreMoviesViewController!
     
+    public init() {}
+    
     public func create() -> ListGenreMoviesViewController {
         let vc = ListGenreMoviesViewController()
         let viewModel = ListGenreMoviesViewModel()
@@ -19,8 +21,6 @@ public final class ListGenreMoviesWireframe {
         vc.wireframe = self
         return vc
     }
-    
-    public init() {}
 }
 
 // MARK: Public
