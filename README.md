@@ -1,6 +1,6 @@
 # themoviedb
 
-Modular Clean Architecture with MVVM + Wireframe as the navigation.
+Modular Clean Architecture with MVVM + Wireframe as the navigation. Modularize using cocoa touch framework.
 Created in Xcode 11, using Swift Package Manager, Combine, UITableViewDiffableDataSource and Result. Please compile in Xcode 11
 
 <p align="center">
