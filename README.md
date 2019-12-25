@@ -12,5 +12,8 @@ Created in Xcode 11, using Swift Package Manager, Combine, UITableViewDiffableDa
 - Xcode 11
 - Swift 5
 
+## Resources
+api: https://api.themoviedb.org
+
 ## Author
 ivan, ivan.kristianto@ovo.id
