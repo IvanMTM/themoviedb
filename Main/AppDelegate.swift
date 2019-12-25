@@ -4,9 +4,9 @@
 // 
 
 import UIKit
-import App
 import Kit
-import APIServices
+import class APIServices.ConfigurationManager
+import GenreMovie
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
