@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "948039A023AE465E0097A12A"
+               BlueprintIdentifier = "94C9BBF423B49B010020C35E"
                BuildableName = "Kit.framework"
                BlueprintName = "Kit"
-               ReferencedContainer = "container:themoviedb.xcodeproj">
+               ReferencedContainer = "container:Kit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,10 +50,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "948039A023AE465E0097A12A"
+            BlueprintIdentifier = "94C9BBF423B49B010020C35E"
             BuildableName = "Kit.framework"
             BlueprintName = "Kit"
-            ReferencedContainer = "container:themoviedb.xcodeproj">
+            ReferencedContainer = "container:Kit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
