@@ -4,17 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>API.xcscheme_^#shared#^_</key>
+		<key>Ui-Kit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>11</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>94C9BAF123B319E70020C35E</key>
+		<key>940C664C23B64EDC00182299</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "94803A0623AE48480097A12A"
+               BlueprintIdentifier = "940C664C23B64EDC00182299"
                BuildableName = "Ui_Kit.framework"
                BlueprintName = "Ui-Kit"
-               ReferencedContainer = "container:themoviedb.xcodeproj">
+               ReferencedContainer = "container:Ui-Kit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,10 +50,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94803A0623AE48480097A12A"
+            BlueprintIdentifier = "940C664C23B64EDC00182299"
             BuildableName = "Ui_Kit.framework"
             BlueprintName = "Ui-Kit"
-            ReferencedContainer = "container:themoviedb.xcodeproj">
+            ReferencedContainer = "container:Ui-Kit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
